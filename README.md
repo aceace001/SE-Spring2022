@@ -4,6 +4,10 @@ Package: json-server, react-router-dom
 Function: A task tracker can add, delete and highlight as a reminder
 Components: Tasks, Button, Header, Footer, About
 
+# Frontend UI design
+What's working: UI implementation for Home Page, Register page, Login Page, a global "taskbar" on top that redirect between pages, and a draft page after user login.
+The structure uses React Router to navigate between pages.
+
 
 # Getting Started with Create React App
 
