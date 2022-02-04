@@ -6,8 +6,11 @@ Components: Tasks, Button, Header, Footer, About
 
 # Frontend UI design
 What's working: This first draft implementation includes UI design and layout for Home Page, Login Page, Register Page, a global "taskbar" on top to redirect between pages, and a draft page after login. Users can sign up for a new account and then use the credentials to login. Each page is linked through React Route, however, the database that stores user credentials and server API that transfer information between registered users and login still need more work to collaborate with the backend.\
+
 The structure uses React Router to navigate between pages.\
+
 The implementation is placed in the branch "frontend #1".\
+
 Demo for the UI is uploaded in the branch seperately
 
 
