@@ -5,7 +5,7 @@ Function: A task tracker can add, delete and highlight as a reminder\
 Components: Tasks, Button, Header, Footer, About
 
 # Frontend UI design
-What's working: UI implementation for Home Page, Register page, Login Page, a global "taskbar" on top that redirect between pages, and a draft page after user login.\
+What's working: This first draft implementation includes UI design and layout for Home Page, Login Page, Register Page, a global "taskbar" on top to redirect between pages, and a draft page after login. Users can sign up for a new account and then use the credentials to login. Each page is linked through React Route, however, the database that stores user credentials and server API that transfer information between registered users and login still need more work to collaborate with the backend.\
 The structure uses React Router to navigate between pages.\
 The implementation is placed in the branch "frontend #1".
 
