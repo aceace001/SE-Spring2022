@@ -13,6 +13,17 @@ The implementation is placed in the branch "frontend #1".
 
 Demo for the UI is uploaded in the branch seperately
 
+# Sprint 1 Backend Tasktracker
+Programming Language: Golang\
+Framework: Gin\
+Database: mySQL\
+Package: jwt-go, cors, gin-gonic/gin, go-sql-driver/mysql\
+Function: regitser, login, logout\
+Test:Postman
+
+# Backend 
+What's working: User authentication (JWT), Login, and Logout functions are achieved, and MySQL is used as the database based on the GIN framework. The next step will focus on the user's information sections: following, followers, Avatar, Comment，Post，Repost.
+
 
 # Getting Started with Create React App
 
