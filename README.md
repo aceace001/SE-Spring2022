@@ -24,6 +24,7 @@ Test:Postman
 # Backend 
 What's working: User authentication (JWT), Login, and Logout functions are achieved, and MySQL is used as the database based on the GIN framework. The next step will focus on the user's information sections: following, followers, Avatar, Comment，Post，Repost.
 
+The implementation is placed in the branch "Sprint1-backend".
 
 # Getting Started with Create React App
 
