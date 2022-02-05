@@ -31,6 +31,11 @@ What's working: User authentication (JWT), Login, and Logout functions are imple
 
 The implementation is placed in the branch "Sprint1-backend".
 
+# Backend Code Contributions：
+Dafei Du: datasource,  domain, serveices, main.go, video\
+Yuhan Jin：app, controller, utils 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
