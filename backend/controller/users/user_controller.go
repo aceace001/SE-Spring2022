@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"strconv"
 	"time"
-
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 )
