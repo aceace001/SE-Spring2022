@@ -1,3 +1,5 @@
+Since we didn't combine the backend and frontend, therefore the implementation is placed in three seperated branches. A demo is also uploaded to each branch.
+
 # Sprint 1 Frontend Tasktracker
 Framework: react\
 Package: json-server, react-router-dom\
