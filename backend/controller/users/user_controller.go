@@ -16,6 +16,7 @@ const (
 	SecretKey = "qwe123"
 )
 
+//  users register an account
 func Register(c *gin.Context) {
 	var user users.User
 
@@ -34,6 +35,7 @@ func Register(c *gin.Context) {
 	c.JSON(http.StatusOK, result)
 }
 
+// users login the account
 func Login(c *gin.Context) {
 	var user users.User
 
@@ -66,6 +68,7 @@ func Login(c *gin.Context) {
 	c.JSON(http.StatusOK, result)
 }
 
+// get users' information
 func Get(c *gin.Context) {
 	cookie, err := c.Cookie("jwt")
 	if err != nil {
@@ -99,6 +102,7 @@ func Get(c *gin.Context) {
 	c.JSON(http.StatusOK, result)
 }
 
+// log out the account
 func Logout(c *gin.Context) {
 	c.SetCookie("jwt", "", -1, "", "", false, true)
 	c.JSON(http.StatusOK, gin.H{
@@ -106,6 +110,7 @@ func Logout(c *gin.Context) {
 	})
 }
 
+// check if email exist or not
 func Email(c *gin.Context) {
 
 }
