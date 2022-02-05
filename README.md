@@ -17,7 +17,7 @@ Demo for the UI is uploaded in the branch seperately
 Programming Language: Golang\
 Framework: Gin\
 Database: mySQL\
-Package: jwt-go, cors, gin-gonic/gin, go-sql-driver/mysql\
+Package: jwt-go, cors, gin-gonic/gin, go-sql-driver/mysql, golang.org/x/crypto/bcrypt\
 Function: regitser, login, logout\
 Test:Postman
 
