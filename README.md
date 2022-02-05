@@ -3,7 +3,7 @@ Framework: react\
 Package: json-server, react-router-dom\
 Function: A task tracker can add, delete and highlight as a reminder\
 Components: Tasks, Button, Header, Footer, About\
-This specific functionality is placed in the branch task
+This specific functionality is placed in the branch "tasktracker"
 
 # Frontend UI design
 What's working: This first draft implementation includes UI design and layout for Home Page, Login Page, Register Page, a global "taskbar" on top to redirect between pages, and a draft page after login. Users can sign up for a new account and then use the credentials to login. Each page is linked through React Route, however, the database that stores user credentials and server API that transfer information between registered users and login still need more work to collaborate with the backend.
