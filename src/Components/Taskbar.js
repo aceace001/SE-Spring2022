@@ -22,7 +22,7 @@ function Taskbar() {
 
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-            <ul classNmae='nav-menu-items' onClick={showSidebar}>
+            <ul className='nav-menu-items' onClick={showSidebar}>
                 <li className='navbar-toggle'>
                     <Link to="#" className='menu-bars'>
                         <AiIcons.AiOutlineClose />
