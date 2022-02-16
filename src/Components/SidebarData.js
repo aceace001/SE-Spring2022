@@ -1,7 +1,8 @@
 import React from 'react';
-import * as FaIcons from "react-icons/fa"
+import * as BsIcons from 'react-icons/bs'
 import * as AiIcons from "react-icons/ai"
 import * as IoIcons from 'react-icons/io'
+import * as FiIcons from 'react-icons/fi'
 
 export const SidebarData = [
     {
@@ -11,29 +12,42 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
-        title: "Reports",
-        path: '/reports',
-        icon: <IoIcons.IoIosPaper />,
+        title: "Settings",
+        path: '/Settings',
+        icon: <IoIcons.IoMdSettings />,
         cName: 'nav-text'
     },
     {
-        title: "Products",
-        path: '/products',
-        icon: <FaIcons.FaCartPlus />,
+        title: "Users",
+        path: '/users',
+        icon: <FiIcons.FiUsers />,
         cName: 'nav-text'
     },
     {
-        title: "Team",
-        path: '/team',
-        icon: <IoIcons.IoMdPeople />,
+        title: "Search",
+        path: '/search',
+        icon: <FiIcons.FiSearch />,
         cName: 'nav-text'
     },
     {
         title: "Messages",
         path: '/messages',
-        icon: <FaIcons.FaEnvelopeOpenText />,
+        icon: <FiIcons.FiMessageSquare />,
         cName: 'nav-text'
-    },{
+    },
+    {
+        title: "Addfriends",
+        path: '/addfriends',
+        icon: <FiIcons.FiUserPlus />,
+        cName: 'nav-text'
+    },
+    {
+        title: "Posts",
+        path: '/posts',
+        icon: <BsIcons.BsFillFilePostFill />,
+        cName: 'nav-text'
+    },
+    {
         title: "Support",
         path: '/support',
         icon: <IoIcons.IoMdHelpCircle />,
