@@ -1,6 +1,9 @@
 package main
 
-import "net"
+import (
+	"net"
+	"strings"
+)
 
 type User struct {
 	Name string
@@ -55,9 +58,44 @@ func (this *User) Offline() {
 
 }
 
+//Send a message to the client corresponding to the current User
+func (this *User) SendMsg(msg string) {
+	this.conn.Write([]byte(msg))
+}
+
 //the method of user processes the message
 func (this *User) DoMessage(msg string) {
-	this.server.BroadCast(this, msg)
+	if msg == "onlinelist" {
+		//lookup who are the currently online users
+
+		this.server.mapLock.Lock()
+		for _, user := range this.server.OnlineMap {
+			onlineMsg := "[" + user.Addr + "]" + user.Name + ":" + "is online...\n"
+			this.SendMsg(onlineMsg)
+		}
+		this.server.mapLock.Unlock()
+
+	} else if len(msg) > 7 && msg[:7] == "rename:" {
+		//order format: rename:Michael
+		newName := strings.Split(msg, "|")[1]
+
+		//Check if the name already exists
+		_, ok := this.server.OnlineMap[newName]
+		if ok {
+			this.SendMsg("The current username is already in use, and please choose another name\n")
+		} else {
+			this.server.mapLock.Lock()
+			delete(this.server.OnlineMap, this.Name)
+			this.server.OnlineMap[newName] = this
+			this.server.mapLock.Unlock()
+
+			this.Name = newName
+			this.SendMsg("You have updated your username:" + this.Name + "\n")
+		}
+
+	} else {
+		this.server.BroadCast(this, msg)
+	}
 }
 
 //The method of monitoring the current User channel: It will be sent directly to the opposite client once there is a message.
