@@ -5,6 +5,7 @@ import (
 	"io"
 	"net"
 	"sync"
+	"time"
 )
 
 type Server struct {
@@ -60,6 +61,9 @@ func (this *Server) Handler(conn net.Conn) {
 
 	user.Online()
 
+	//The channel that monitors whether the user is active
+	isLive := make(chan bool)
+	
 	//Accept messages sent by clients
 	go func() {
 		buf := make([]byte, 4096)
@@ -80,11 +84,35 @@ func (this *Server) Handler(conn net.Conn) {
 
 			//The user performs message processing for msg
 			user.DoMessage(msg)
+			
+			//Any message of the user, indicating that the current user is an active user
+			isLive <- true
 		}
 	}()
 
 	//The current handler is blocked
-	select {}
+	for {
+		select {
+		case <-isLive:
+			//The current user is active and the timer should be reset
+			//in order to activate the select, update the timer below without doing anything
+
+		case <-time.After(time.Second * 10):
+			//User login expired
+			//close the current user channel
+
+			user.SendMsg("login expired")
+
+			//Destroy the used resources
+			close(user.C)
+
+			//close connection
+			conn.Close()
+
+			//Exit the current Handler
+			return //runtime.Goexit()
+		}
+	}
 }
 
 //The interface to start the server
