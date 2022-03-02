@@ -65,7 +65,7 @@ func (this *User) SendMsg(msg string) {
 
 //the method of user processes the message
 func (this *User) DoMessage(msg string) {
-	if msg == "onlinelist" {
+	if msg == "who" {
 		//lookup who are the currently online users
 
 		this.server.mapLock.Lock()
@@ -75,7 +75,7 @@ func (this *User) DoMessage(msg string) {
 		}
 		this.server.mapLock.Unlock()
 
-	} else if len(msg) > 7 && msg[:7] == "rename:" {
+	} else if len(msg) > 7 && msg[:7] == "rename|" {
 		//order format: rename:Michael
 		newName := strings.Split(msg, "|")[1]
 
@@ -93,7 +93,7 @@ func (this *User) DoMessage(msg string) {
 			this.SendMsg("You have updated your username:" + this.Name + "\n")
 		}
 
-	     } else if len(msg) > 4 && msg[:3] == "to|" {
+	} else if len(msg) > 4 && msg[:3] == "to|" {
 		//Message format: to|Michael|message information
 
 		//1 Get the username of the other user
@@ -103,10 +103,10 @@ func (this *User) DoMessage(msg string) {
 			return
 		}
 
-		//2 2 Get the other party's User object according to the username
+		//2 Get the other party's User object according to the username
 		remoteUser, ok := this.server.OnlineMap[remoteName]
 		if !ok {
-			this.SendMsg("The username does not exist.\n")
+			this.SendMsg("The username does not exist\n")
 			return
 		}
 
@@ -116,7 +116,7 @@ func (this *User) DoMessage(msg string) {
 			this.SendMsg("There is no message content, and please resend.\n")
 			return
 		}
-		remoteUser.SendMsg(this.Name + "says to you:" + content)
+		remoteUser.SendMsg(this.Name + " says to you: " + content)
 
 	} else {
 		this.server.BroadCast(this, msg)

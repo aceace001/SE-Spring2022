@@ -12,11 +12,11 @@ type Server struct {
 	Ip   string
 	Port int
 
-	//List of online users
+	// List of online users
 	OnlineMap map[string]*User
 	mapLock   sync.RWMutex
 
-	//message broadcast channel
+	// //message broadcast channel
 	Message chan string
 }
 
@@ -55,22 +55,23 @@ func (this *Server) BroadCast(user *User, msg string) {
 
 func (this *Server) Handler(conn net.Conn) {
 	//...Currently connected business
-	//fmt.Println("Connection established successfully")
+	// fmt.Println("Connection established successfully")
 
 	user := NewUser(conn, this)
-
+	
 	user.Online()
 
-	//The channel that monitors whether the user is active
+	// //The channel that monitors whether the user is active
 	isLive := make(chan bool)
-	
+
 	//Accept messages sent by clients
 	go func() {
 		buf := make([]byte, 4096)
 		for {
 			n, err := conn.Read(buf)
 			if n == 0 {
-				user.Offline()
+				// user.Offline()
+				this.BroadCast(user, "inactive")
 				return
 			}
 
@@ -84,12 +85,12 @@ func (this *Server) Handler(conn net.Conn) {
 
 			//The user performs message processing for msg
 			user.DoMessage(msg)
-			
+
 			//Any message of the user, indicating that the current user is an active user
 			isLive <- true
 		}
 	}()
-
+	
 	//The current handler is blocked
 	for {
 		select {
@@ -97,8 +98,10 @@ func (this *Server) Handler(conn net.Conn) {
 			//The current user is active and the timer should be reset
 			//in order to activate the select, update the timer below without doing anything
 
-		case <-time.After(time.Second * 10):
+		case <-time.After(time.Second * 300):
+
 			//User login expired
+
 			//close the current user channel
 
 			user.SendMsg("login expired")
