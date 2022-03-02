@@ -97,8 +97,8 @@ func (this *Server) Handler(conn net.Conn) {
 			//The current user is active and the timer should be reset
 			//in order to activate the select, update the timer below without doing anything
 
-		case <-time.After(time.Second * 10):
-			//User login expired
+		case <-time.After(time.Second * 300):
+			//User login will be expired in 300 seconds 
 			//close the current user channel
 
 			user.SendMsg("login expired")
