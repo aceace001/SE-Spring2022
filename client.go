@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net"
 	"flag"
+	"io"
+	"os"
 )
 
 type Client struct {
@@ -36,6 +38,16 @@ func NewClient(serverIp string, serverPort int) *Client {
 	return client
 }
 
+// deal with server's response
+func (client *Client) DealResponse() {
+	io.Copy(os.Stdout, client.conn)
+
+	// for {
+	// 	buf := make() 
+	// 	client.conn.Read(buf) 
+	// 	fmt.Println(buf) 
+	// }
+}
 func (client *Client) menu() bool {
 	var flag int 
 
@@ -56,6 +68,18 @@ func (client *Client) menu() bool {
 	}
 }
 
+func (client *Client) UpdateName() bool {
+	fmt.Println(">>>>Please input your username: ")
+	fmt.Scanln(&client.Name)
+
+	sendMsg := "rename|" + client.Name + "\n"
+	_, err := client.conn.Write([]byte(sendMsg))
+	if err != nil {
+		fmt.Println("conn.Write err:", err)
+		return false 
+	}
+	return true 
+}
 
 func (client *Client) Run() {
 	for client.flag != 0 {
@@ -75,7 +99,7 @@ func (client *Client) Run() {
 			break
 		case 3:
 			// update profile 
-			fmt.Println("3. update profile mode...")
+			client.UpdateName()
 			break 
 		}
 	}
@@ -98,6 +122,8 @@ func main() {
 
 		return
 	}
+
+	go client.DealResponse()
 
 	fmt.Println(">>>>>>connection succeed...")
 
