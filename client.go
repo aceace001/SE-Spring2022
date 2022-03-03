@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"net"
 	"flag"
+	"fmt"
 	"io"
+	"net"
 	"os"
 )
 
@@ -13,7 +13,7 @@ type Client struct {
 	ServerPort int
 	Name       string
 	conn       net.Conn
-	flag	   int 
+	flag       int
 }
 
 func NewClient(serverIp string, serverPort int) *Client {
@@ -21,7 +21,7 @@ func NewClient(serverIp string, serverPort int) *Client {
 	client := &Client{
 		ServerIp:   serverIp,
 		ServerPort: serverPort,
-		flag:		999,
+		flag:       999,
 	}
 
 	// connect client
@@ -43,13 +43,13 @@ func (client *Client) DealResponse() {
 	io.Copy(os.Stdout, client.conn)
 
 	// for {
-	// 	buf := make() 
-	// 	client.conn.Read(buf) 
-	// 	fmt.Println(buf) 
+	// 	buf := make()
+	// 	client.conn.Read(buf)
+	// 	fmt.Println(buf)
 	// }
 }
 func (client *Client) menu() bool {
-	var flag int 
+	var flag int
 
 	fmt.Println("1. public chat")
 	fmt.Println("2. private chat")
@@ -59,17 +59,23 @@ func (client *Client) menu() bool {
 	fmt.Scanln(&flag)
 
 	if flag >= 0 && flag <= 3 {
-		client.flag = flag 
-		return true 
+		client.flag = flag
+		return true
 	} else {
 		fmt.Println(">>>>Please input valid integer number(0-3): ")
-		
-		return false 
+
+		return false
 	}
 }
-// select active users 
-func (client *Client) SelectUsers() {
 
+// select active users
+func (client *Client) SelectUsers() {
+	sendMsg := "who\n"
+	_, err := client.conn.Write([]byte(sendMsg))
+	if err != nil {
+		fmt.Println("conn Write err:", err)
+		return
+	}
 }
 
 // create private chat function
@@ -78,21 +84,21 @@ func (client *Client) PrivateChat() {
 }
 func (client *Client) PublicChat() {
 	// prompt user input msg
-	var chatMsg string 
+	var chatMsg string
 
 	fmt.Println(">>>>Please start chat, 'exit' quit chat! ")
 	fmt.Scanln(&chatMsg)
 
 	for chatMsg != "exit" {
-		// send to server 
-		
-		// message is not NULL 
+		// send to server
+
+		// message is not NULL
 		if len(chatMsg) != 0 {
 			sendMsg := chatMsg + "\n"
 			_, err := client.conn.Write([]byte(sendMsg))
 			if err != nil {
 				fmt.Println("conn Write err:", err)
-				break 
+				break
 			}
 		}
 
@@ -109,9 +115,9 @@ func (client *Client) UpdateName() bool {
 	_, err := client.conn.Write([]byte(sendMsg))
 	if err != nil {
 		fmt.Println("conn.Write err:", err)
-		return false 
+		return false
 	}
-	return true 
+	return true
 }
 
 func (client *Client) Run() {
@@ -123,22 +129,23 @@ func (client *Client) Run() {
 		// deal with different options
 		switch client.flag {
 		case 1:
-			// public chat mode 
+			// public chat mode
 			client.PublicChat()
 			break
 		case 2:
-			// private chat mode 
+			// private chat mode
 			fmt.Println("2. private chat mode...")
 			break
 		case 3:
-			// update profile 
+			// update profile
 			client.UpdateName()
-			break 
+			break
 		}
 	}
 }
-var serverIp 	string 
-var serverPort 	int 
+
+var serverIp string
+var serverPort int
 
 func init() {
 	flag.StringVar(&serverIp, "ip", "127.0.0.1", "set IP address(default 127.0.0.1)")
@@ -146,7 +153,7 @@ func init() {
 }
 
 func main() {
-	// parse comment 
+	// parse comment
 	flag.Parse()
 
 	client := NewClient(serverIp, serverPort)
