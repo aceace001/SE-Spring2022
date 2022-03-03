@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+.home {
+  width: 100%;
+  margin: auto;
+  padding: 140px;
+}
+.login {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: auto;
+}
 
+.register {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: auto;
+}
+
+.homepost {
+  width: 100%;
+  margin: auto;
+  padding: 140px;
+}
 *{
   box-sizing: border-box;
   margin: 0;
@@ -7,7 +30,13 @@
   font-family: 'Lato', sans-serif;
 }
 
-.home, .reports, .products{
+.search, 
+.messages,
+.addfriends,
+.posts,
+.settings,
+.users,
+.support{
   display: flex;
   height: 90vh;
   align-items: center;
