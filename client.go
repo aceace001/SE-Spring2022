@@ -100,6 +100,9 @@ func (client *Client) PrivateChat() {
 					break
 				}
 			}
+			chatMsg = ""
+			fmt.Println(">>>please send message to others! ('exit' to quit)")
+			fmt.Scanln(&chatMsg)
 		}
 	}
 }
