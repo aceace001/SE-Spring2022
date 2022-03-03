@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net"
+	"flag"
 )
 
 type Client struct {
@@ -10,6 +11,7 @@ type Client struct {
 	ServerPort int
 	Name       string
 	conn       net.Conn
+	flag	   int 
 }
 
 func NewClient(serverIp string, serverPort int) *Client {
@@ -17,6 +19,7 @@ func NewClient(serverIp string, serverPort int) *Client {
 	client := &Client{
 		ServerIp:   serverIp,
 		ServerPort: serverPort,
+		flag:		999,
 	}
 
 	// connect client
@@ -33,8 +36,63 @@ func NewClient(serverIp string, serverPort int) *Client {
 	return client
 }
 
+func (client *Client) menu() bool {
+	var flag int 
+
+	fmt.Println("1. public chat")
+	fmt.Println("2. private chat")
+	fmt.Println("3. update profile")
+	fmt.Println("0. log out")
+
+	fmt.Scanln(&flag)
+
+	if flag >= 0 && flag <= 3 {
+		client.flag = flag 
+		return true 
+	} else {
+		fmt.Println(">>>>Please input valid integer number(0-3): ")
+		
+		return false 
+	}
+}
+
+
+func (client *Client) Run() {
+	for client.flag != 0 {
+		for client.menu() != true {
+
+		}
+
+		// deal with different options
+		switch client.flag {
+		case 1:
+			// public chat mode 
+			fmt.Println("1. public chat mode...")
+			break
+		case 2:
+			// private chat mode 
+			fmt.Println("2. private chat mode...")
+			break
+		case 3:
+			// update profile 
+			fmt.Println("3. update profile mode...")
+			break 
+		}
+	}
+}
+var serverIp 	string 
+var serverPort 	int 
+
+func init() {
+	flag.StringVar(&serverIp, "ip", "127.0.0.1", "set IP address(default 127.0.0.1)")
+	flag.IntVar(&serverPort, "port", 8888, "set port(default 8888)")
+}
+
 func main() {
-	client := NewClient("127.0.0.1", 8888)
+	// parse comment 
+	flag.Parse()
+
+	client := NewClient(serverIp, serverPort)
 	if client == nil {
 		fmt.Println(">>>>>connection failed...")
 
@@ -44,5 +102,5 @@ func main() {
 	fmt.Println(">>>>>>connection succeed...")
 
 	// start client
-	select {}
+	client.Run()
 }
