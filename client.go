@@ -67,7 +67,15 @@ func (client *Client) menu() bool {
 		return false 
 	}
 }
+// select active users 
+func (client *Client) SelectUsers() {
 
+}
+
+// create private chat function
+func (client *Client) PrivateChat() {
+
+}
 func (client *Client) PublicChat() {
 	// prompt user input msg
 	var chatMsg string 
