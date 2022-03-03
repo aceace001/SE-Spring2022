@@ -80,7 +80,12 @@ func (client *Client) SelectUsers() {
 
 // create private chat function
 func (client *Client) PrivateChat() {
+	var remoteName string 
+	client.SelectUsers()
+	fmt.Println(">>>>please select a user to chat! ('exit' quit chat)")
+	fmt.Scanln(&remoteName)
 
+	for 
 }
 func (client *Client) PublicChat() {
 	// prompt user input msg
