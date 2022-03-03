@@ -93,13 +93,13 @@ func (client *Client) PrivateChat() {
 		for chatMsg != "exit" {
 			// message is not NULL
 			if len(chatMsg) != 0 {
-				sendMsg := chatMsg + "\n"
+				sendMsg := "to|" + remoteName + "|" + chatMsg + "\n\n"
 				_, err := client.conn.Write([]byte(sendMsg))
 				if err != nil {
 					fmt.Println("conn Write err:", err)
 					break
 				}
-			}			
+			}
 		}
 	}
 }
