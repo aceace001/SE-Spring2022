@@ -104,6 +104,9 @@ func (client *Client) PrivateChat() {
 			fmt.Println(">>>please send message to others! ('exit' to quit)")
 			fmt.Scanln(&chatMsg)
 		}
+		client.SelectUsers()
+		fmt.Println(">>>>please select a user to chat! ('exit' quit chat)")
+		fmt.Scanln(&remoteName)
 	}
 }
 func (client *Client) PublicChat() {
@@ -158,7 +161,7 @@ func (client *Client) Run() {
 			break
 		case 2:
 			// private chat mode
-			fmt.Println("2. private chat mode...")
+			client.PrivateChat()
 			break
 		case 3:
 			// update profile
