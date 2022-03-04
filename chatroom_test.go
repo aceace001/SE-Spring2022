@@ -1,8 +1,14 @@
 package test
 
 import (
+	"net/http"
+	"net/http/httptest"
 	"testing"
+
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"	// here!
 )
+//inital db
 
 // //login and register
 // func TestLogin(t *testing.T) {
@@ -28,6 +34,8 @@ import (
 
 //test register
 func TestRegister(t *testing.T) {
+	g := gin.Default()
+	SetUpRoutes(g)
 
 	var jsonStr = []byte(`{"id":4,"first_name":"xyz","last_name":"pqr","email":"xyz@pqr.com","password":"1234567890"}`)
 
