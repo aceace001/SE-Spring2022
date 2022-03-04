@@ -20,7 +20,7 @@ import HomePost from './pages/HomePost'
 function App() {
   return (
     <>
-    
+    <div className="c" id="container">
     <Router>
       <Taskbar />
       <Routes>
@@ -37,7 +37,7 @@ function App() {
         <Route path='/support' element={<Support />}/>
       </Routes>
     </Router>
-    
+    </div>
     </>
   );
 }
