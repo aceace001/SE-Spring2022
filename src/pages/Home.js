@@ -31,13 +31,13 @@ const Home = () => {
                 </div>
                 <div className={"col-md-10 mx-auto col-lg-5"}>
                     <form className={"p-4 p-md-5 border rounded-3 bg-light"} onSubmit={submit}>
-                        <div className={"form-floating mb-3"}>
+                        <div className={"form-floating mb-3"} id='email'>
                             <input type="email" className="form-control" placeholder="Email address" required
                                    onChange={e => setEmail(e.target.value)}
                             />
                             <label>Email Address</label>
                         </div>
-                        <div className={"form-floating mb-3"}>
+                        <div className={"form-floating mb-3"} id='password'>
                             <input type="password" className="form-control" placeholder="Password" required
                                    onChange={e => setPassword(e.target.value)}
                             />
