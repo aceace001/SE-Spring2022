@@ -176,7 +176,7 @@ var serverPort int
 
 func init() {
 	flag.StringVar(&serverIp, "ip", "127.0.0.1", "set IP address(default 127.0.0.1)")
-	flag.IntVar(&serverPort, "port", 8888, "set port(default 8888)")
+	flag.IntVar(&serverPort, "port", 8081, "set port(default 8081)")
 }
 
 func main() {
