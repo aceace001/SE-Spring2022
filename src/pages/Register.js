@@ -8,10 +8,29 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [navi, setNavi] = useState(false);
 
+    console.log({
+        name,
+        email,
+        password
+    })
+
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
-
+        const response = await fetch('http://localhost:8081/api/register', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                name,
+                email,
+                password
+            })
+        })
         setNavi(true);
+
+
+        const content = await response.json();
+
+        console.log(content);
     }
 
     if (navi) {
@@ -22,19 +41,19 @@ const Register = () => {
         <div className="register">
         <form className={"p-4 p-md-5 border rounded-3 bg-light"} onSubmit={submit}>
             <h1 className="h3 mb-3 fw-normal">Please register</h1>
-            <div className={"form-floating mb-3"} id='name'>
+            <div className={"form-floating mb-3"}>
                 <input type="username" className="form-control" placeholder="Username" required
                        onChange={e => setName(e.target.value)}
                 />
                 <label>Username</label>
             </div>
-            <div className={"form-floating mb-3"} id='email'>
+            <div className={"form-floating mb-3"}>
                 <input type="email" className="form-control" placeholder="Email address" required
                        onChange={e => setEmail(e.target.value)}
                 />
                 <label>Email Address</label>
             </div>
-            <div className={"form-floating mb-3"} id='password'>
+            <div className={"form-floating mb-3"}>
                 <input type="password" className="form-control" placeholder="Password" required
                        onChange={e => setPassword(e.target.value)}
                 />
