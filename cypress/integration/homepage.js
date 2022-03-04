@@ -18,7 +18,7 @@ describe("renders the home page",() => {
         cy.get('#email').type('aabb@gmail.com');
         cy.get('#password').type('2233');
         cy.findByRole('button',{name: /Login/i}).click()
-        cy.findByText("Post Page").should("exist");
+        cy.findByText("Wrong username or password").should("exist");
 
     });
     it("allows the email and password fields to be used", () => {
@@ -26,6 +26,6 @@ describe("renders the home page",() => {
         cy.get('#email').type('hhhh@gmail.com')
         cy.get('#password').type('12345')
         cy.findByRole('button',{name: /Login/i}).click()
-        cy.findByText("Post Page").should("exist");
+        cy.findByText("Wrong username or password").should("exist");
     })
 });
