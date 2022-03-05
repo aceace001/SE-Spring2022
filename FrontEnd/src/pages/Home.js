@@ -1,6 +1,5 @@
 import React, {SyntheticEvent, useState} from 'react';
 import {Link, Navigate} from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
     const [email, setEmail] = useState('');
