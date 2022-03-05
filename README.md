@@ -15,6 +15,8 @@ update username: Users do not have their name at the beginning. They should upda
 
 logout: If users do not want to chat, they can log out the account the quit the chat room. The status of the user will changed to inactive. 
 
+In addition, I built a client to facilitate operation and combined with sprint1 and sprint2 together. 
+
 
 # Sprint 2 Frontend UI design & combine frontend and backend
 Contributor: Yuhao Shi\
