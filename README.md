@@ -1,4 +1,7 @@
-This time we combine the frontend and backend together
+
+This time we combine the frontend and backend together, and furthur development in more pages and their functionalities. Everything we worked on this time were ALL placed under "main-branch" default branch with clear history of committments. 
+
+
 # Sprint 2 Backend
 Contributor: Dafei Du\
 Framework: Gin\
@@ -11,6 +14,16 @@ private chat: users can choose any online user to chat. They can send messages t
 update username: Users do not have their name at the beginning. They should update their username. After done that, they have unique name. This means other users cannot use the same username.
 
 logout: If users do not want to chat, they can log out the account the quit the chat room. The status of the user will changed to inactive. 
+
+
+# Sprint 2 Frontend UI design & combine frontend and backend
+Contributor: Yuhao Shi\
+What's working: Based on the first draft, a chat page was added to display real time message textting. After navigating the page to "message" in taskbar, there are three components on the page including a friends list on the left, real time chatting box and a message input box in the middle, and a list of current online friends on the right. 
+I also combined frontend and backend successfully by posting and retriving data between server and database through our local host API. Users now are able to register their account and login with their registered email and password. When clicking on the login button, users will be redirected to a page where a message will be displayed based on whether they are authenticated or not. 
+
+Everything we worked on for Frontend were placed under "main-branch" and folder "FrontEnd".
+
+IMPORTANT: as of right now, it seems like we are not able to access API and retrieve data from MySQL database on WINDOWS machines. But everything works perfectly fine on MacOS. It might seems to be an unsolved issue from the database. We might have to change the databse to something else in future sprints. 
 
 # Sprint 2 Frontend Taskbar and Cypress Unit Testing
 Contributor: Fugang Deng\
