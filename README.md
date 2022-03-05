@@ -1,4 +1,16 @@
 This time we combine the frontend and backend together
+# Sprint 2 Backend
+Contributor: Dafei Du\
+Framework: Gin\
+Features: public chat, private chat, update username, log out
+Functions: 
+public chat: users can chat to everyone. Any online users can receive the message.
+
+private chat: users can choose any online user to chat. They can send messages to each other. Others cannot see the messages.
+
+update username: Users do not have their name at the beginning. They should update their username. After done that, they have unique name. This means other users cannot use the same username.
+
+logout: If users do not want to chat, they can log out the account the quit the chat room. The status of the user will changed to inactive. 
 
 # Sprint 2 Frontend Taskbar and Cypress Unit Testing
 Contributor: Fugang Deng\
