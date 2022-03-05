@@ -1,40 +1,45 @@
 import React, {useEffect, useState} from 'react';
-import './App.css';
-import Home from "./page/Home";
-import Login from "./page/Login";
-import Register from "./page/Register";
-import TaskBar from "./TaskBar/TaskBar";
-import TaskBar1 from "./TaskBar/TaskBar1";
-import HomePost from "./page/HomePost";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+
+import './App.css'
+import Taskbar from './Components/Taskbar'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Users from './pages/Users'
+import Settings from './pages/Settings'
+import Search from './pages/Search'
+import Addfriends from './pages/Addfriends'
+import Posts from './pages/Posts'
+import Support from './pages/Support'
+import Messages from './pages/Messages'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import HomePost from './pages/HomePost'
+
+
 
 function App() {
-  const [name, setName] = useState('');
   return (
-      <div className="App">
-        <BrowserRouter>
-          <TaskBar name={name} setName={setName}/>
-          <div className={"home"}>
-              <Routes>
-                  <Route path="/" element={<Home/>}/>
-              </Routes>
-
-          </div>
-          <main className="form-signin">
-              <Routes>
-                  <Route path="/Login" element={<Login/>}/>
-                  <Route path="/Register" element={<Register/>}/>
-              </Routes>
-          </main>
-          <div className={"homepost"}>
-              <Routes>
-                  <Route path="/HomePost" element={<HomePost/>}/>
-              </Routes>
-          </div>
-        </BrowserRouter>
-      </div>
+    <>
+    <div className="c" id="container">
+    <Router>
+      <Taskbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/HomePost' element={<HomePost />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/settings' element={<Settings />}/>
+        <Route path='/users' element={<Users />}/>
+        <Route path='/messages' element={<Messages />}/>
+        <Route path='/search' element={<Search />}/>
+        <Route path='/addfriends' element={<Addfriends />}/>
+        <Route path='/posts' element={<Posts />}/>
+        <Route path='/support' element={<Support />}/>
+      </Routes>
+    </Router>
+    </div>
+    </>
   );
 }
 
 export default App;
-
