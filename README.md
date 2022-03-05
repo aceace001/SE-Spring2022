@@ -17,7 +17,7 @@ Features:The backend implements the function of real-time communication, creatin
 # Sprint 2 Backend
 Contributor: Dafei Du\
 Framework: Gin\
-Features: public chat, private chat, update username, log out\
+Features: public chat, private chat, update username, log out, API documentation\
 Functions: 
 
 1. public chat: users can chat to everyone. Any online users can receive the message.
