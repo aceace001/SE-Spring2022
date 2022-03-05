@@ -1,5 +1,5 @@
 
-This time we combine the frontend and backend together, and furthur development in more pages and their functionalities. Everything we worked on this time were ALL placed under "main-branch" default branch with clear history of committments. 
+This time we combinde the frontend and backend together, and furthur development in more pages and their functionalities. Everything we worked on this time were ALL placed under "main-branch" default branch with clear history of committments. 
 
 
 # Sprint 2 Backend
