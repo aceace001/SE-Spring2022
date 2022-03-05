@@ -1,12 +1,24 @@
 
 This time we combinde the frontend and backend together, and furthur development in more pages and their functionalities. Everything we worked on this time were ALL placed under "main-branch" default branch with clear history of committments. 
 
+# Sprint 2 Backend
+Contributor: Yuhan Jin\
+Framework: Gin\
+Features:The backend implements the function of real-time communication, creating a chat room that includes the following functions：
+
+1.Broadcast function of users going online :When a user goes online, it will broadcast to all online users that they are online.
+
+2.Online users' query：We can obtain the currently online users list through the query command. 
+
+3.Force users to go offline when timeout： When the user does not do any operation within the specified time, the program will force the users to go offline. 
+
+4.private and public chat：The private chat function is a point-to-point message transmission; only the two parties can see the content, while the public chat is visible to everyone.
 
 # Sprint 2 Backend
 Contributor: Dafei Du\
 Framework: Gin\
-Features: public chat, private chat, update username, log out
-Functions: 
+Features: public chat, private chat, update username, log out\
+Functions: \
 public chat: users can chat to everyone. Any online users can receive the message.
 
 private chat: users can choose any online user to chat. They can send messages to each other. Others cannot see the messages.
