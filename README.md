@@ -7,15 +7,17 @@ Contributor: Dafei Du\
 Framework: Gin\
 Features: public chat, private chat, update username, log out
 Functions: 
-public chat: users can chat to everyone. Any online users can receive the message.
+1. public chat: users can chat to everyone. Any online users can receive the message.
 
-private chat: users can choose any online user to chat. They can send messages to each other. Others cannot see the messages.
+2. private chat: users can choose any online user to chat. They can send messages to each other. Others cannot see the messages.
 
-update username: Users do not have their name at the beginning. They should update their username. After done that, they have unique name. This means other users cannot use the same username.
+3. update username: Users do not have their name at the beginning. They should update their username. After done that, they have unique name. This means other users cannot use the same username.
 
-logout: If users do not want to chat, they can log out the account the quit the chat room. The status of the user will changed to inactive. 
+4. logout: If users do not want to chat, they can log out the account the quit the chat room. The status of the1. user will changed to inactive. 
 
-In addition, I built a client to facilitate operation and combined with sprint1 and sprint2 together. 
+5. In addition, I built a client to facilitate operation and combined with sprint1 and sprint2 together. 
+
+6. API documentatio is implemented. It contains in backend folder called api.yaml. It can be viewed in swagger.io.
 
 
 # Sprint 2 Frontend UI design & combine frontend and backend
