@@ -6,9 +6,11 @@ import (
 )
 
 var (
-	queryInsertUser     = "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?);"
+	// queryInsertUser     = "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?);"
+	queryInsertUser     = "INSERT INTO users (name, email, password) VALUES (?, ?, ?);"
 	queryGetUserByEmail = "SELECT id, first_name, last_name, email, password FROM users WHERE email=?;"
-	queryGetUserByID    = "SELECT id, first_name, last_name, email FROM users WHERE id=?;"
+	// queryGetUserByID    = "SELECT id, first_name, last_name, email FROM users WHERE id=?;"
+	queryGetUserByID    = "SELECT id, name, email FROM users WHERE id=?;"
 )
 
 func (user *User) Save() *errors.RestErr {
@@ -18,7 +20,8 @@ func (user *User) Save() *errors.RestErr {
 	}
 	defer stmt.Close()
 
-	insertResult, saveErr := stmt.Exec(user.FirstName, user.LastName, user.Email, user.Password)
+	// insertResult, saveErr := stmt.Exec(user.FirstName, user.LastName, user.Email, user.Password)
+	insertResult, saveErr := stmt.Exec(user.Name, user.Email, user.Password)
 	if saveErr != nil {
 		return errors.NewInternalServerErrror("database error")
 	}
@@ -39,9 +42,12 @@ func (user *User) GetByEmail() *errors.RestErr {
 	defer stmt.Close()
 
 	result := stmt.QueryRow(user.Email)
-	if getErr := result.Scan(&user.ID, &user.FirstName, &user.LastName, &user.Email, &user.Password); getErr != nil {
+	if getErr := result.Scan(&user.ID, &user.Name, &user.Email, &user.Password); getErr != nil {
 		return errors.NewInternalServerErrror("database error")
 	}
+	// if getErr := result.Scan(&user.ID, &user.FirstName, &user.LastName, &user.Email, &user.Password); getErr != nil {
+	// 	return errors.NewInternalServerErrror("database error")
+	// }
 	return nil
 }
 
@@ -53,8 +59,11 @@ func (user *User) GetByID() *errors.RestErr {
 	defer stmt.Close()
 
 	result := stmt.QueryRow(user.ID)
-	if getErr := result.Scan(&user.ID, &user.FirstName, &user.LastName, &user.Email); getErr != nil {
+	if getErr := result.Scan(&user.ID, &user.Name, &user.Email); getErr != nil {
 		return errors.NewInternalServerErrror("database error")
 	}
+	// if getErr := result.Scan(&user.ID, &user.FirstName, &user.LastName, &user.Email); getErr != nil {
+	// 	return errors.NewInternalServerErrror("database error")
+	// }
 	return nil
 }

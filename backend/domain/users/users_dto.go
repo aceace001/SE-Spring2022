@@ -7,15 +7,17 @@ import (
 
 type User struct {
 	ID        int64  `json:"ID"`
-	FirstName string `json:"first_name"`
-	LastName  string `json:"last_name"`
+	// FirstName string `json:"first_name"`
+	// LastName  string `json:"last_name"`
+	Name 	  string `json:"name"`
 	Password  string `json:"password"`
 	Email     string `json:"email"`
 }
 
 func (user *User) Validate() *errors.RestErr {
-	user.FirstName = strings.TrimSpace(user.FirstName)
-	user.LastName = strings.TrimSpace(user.LastName)
+	// user.FirstName = strings.TrimSpace(user.FirstName)
+	// user.LastName = strings.TrimSpace(user.LastName)
+	user.Name = strings.TrimSpace(user.Name)
 	user.Email = strings.TrimSpace(user.Email)
 	if user.Email == "" {
 		return errors.NewBadRequestError("invalid email address")

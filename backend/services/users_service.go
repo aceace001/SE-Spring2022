@@ -39,7 +39,8 @@ func GetUser(user users.User) (*users.User, *errors.RestErr) {
 		return nil, errors.NewBadRequestError("failed to decrypt the password")
 	}
 
-	resultWp := &users.User{ID: result.ID, FirstName: result.FirstName, LastName: result.LastName, Email: result.Email}
+	// resultWp := &users.User{ID: result.ID, FirstName: result.FirstName, LastName: result.LastName, Email: result.Email}
+	resultWp := &users.User{ID: result.ID, Name: result.Name, Email: result.Email}
 	return resultWp, nil
 }
 
