@@ -1,12 +1,13 @@
-Since we didn't combine the backend and frontend, therefore the implementation is placed in three seperated branches. A demo is also uploaded to each branch.
+This time we combine the frontend and backend together
 
-# Sprint 1 Frontend Tasktracker
+# Sprint 2 Frontend Taskbar and Cypress Unit Testing
 Contributor: Fugang Deng\
 Framework: react\
-Package: json-server, react-router-dom\
-Function: A task tracker can add, delete and highlight as a reminder\
-Components: Tasks, Button, Header, Footer, About\
-This specific functionality is placed in the branch "tasktracker"
+Package: react-icon, react-router-dom, cypress , cypress testing library, bootstrap, react-bootstrap\
+Function: At the top-left of the website, there is a three white bars, once you click that, the taskbar will show, show websites just simple titles, still need future implementation. I also help to combine the UI of Home, Login, Register and HomePost of my task bar.\
+Testing: The cypress testing require npm install cypress and npm install --save-dev cypress @testing-library/cypress, and put import '@testing-library/cypress/add-commands' in the cypress/support/command.js. I changed to 'test' in package.json to 'cypress open'. Once you do npm start, then open a new terminal type npm test. The cypress interface will show up and double the homepage.js, the test will begin. All the test codes are in the homepage.js in cypress/intergartion. You will see an error on the second test because we need backend to send something to do the fetch, other than that, all the test are good. 
+Components: Taskbar\
+This specific functionality is placed in the branch "main-branch/FrontEnd"
 
 # Frontend UI design
 Contributor: Yuhao Shi\
