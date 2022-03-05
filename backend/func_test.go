@@ -1,12 +1,14 @@
-package test
+package main
 
 import (
-	unitTest "github.com/Valiben/gin_unit_test"
-	"github.com/gin-gonic/gin"
 	"log"
+	"main/controller/users"
 	"net/http"
 	"os"
 	"testing"
+
+	unitTest "github.com/Valiben/gin_unit_test"
+	"github.com/gin-gonic/gin"
 )
 
 type User struct {
