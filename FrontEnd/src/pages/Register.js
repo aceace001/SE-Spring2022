@@ -1,6 +1,5 @@
 import React, {SyntheticEvent, useState} from 'react';
 import {Navigate} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Register = () => {
     const [first_name, setName] = useState('');
