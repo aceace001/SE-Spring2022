@@ -10,25 +10,18 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 host: "localhost:8081"
-basePath: "/api/"
+basePath: "/api"
 tags:
-- name: "pet"
-  description: "Everything about your Pets"
+- name: "user"
+  description: "Everything about users"
   externalDocs:
     description: "Find out more"
-    url: "http://swagger.io"
-- name: "store"
-  description: "Access to Petstore orders"
-- name: "user"
-  description: "Operations about user"
-  externalDocs:
-    description: "Find out more about our store"
     url: "http://swagger.io"
 schemes:
 - "https"
 - "http"
 paths:
-  /pet:
+  /register:
     post:
       tags:
       - "pet"
@@ -55,7 +48,7 @@ paths:
       - petstore_auth:
         - "write:pets"
         - "read:pets"
-    put:
+    post:
       tags:
       - "pet"
       summary: "Update an existing pet"
@@ -493,57 +486,6 @@ paths:
       responses:
         default:
           description: "successful operation"
-  /user/{username}:
-    get:
-      tags:
-      - "user"
-      summary: "Get user by user name"
-      description: ""
-      operationId: "getUserByName"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "username"
-        in: "path"
-        description: "The name that needs to be fetched. Use user1 for testing. "
-        required: true
-        type: "string"
-      responses:
-        "200":
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/User"
-        "400":
-          description: "Invalid username supplied"
-        "404":
-          description: "User not found"
-    put:
-      tags:
-      - "user"
-      summary: "Updated user"
-      description: "This can only be done by the logged in user."
-      operationId: "updateUser"
-      produces:
-      - "application/xml"
-      - "application/json"
-      parameters:
-      - name: "username"
-        in: "path"
-        description: "name that need to be updated"
-        required: true
-        type: "string"
-      - in: "body"
-        name: "body"
-        description: "Updated user object"
-        required: true
-        schema:
-          $ref: "#/definitions/User"
-      responses:
-        "400":
-          description: "Invalid user supplied"
-        "404":
-          description: "User not found"
     delete:
       tags:
       - "user"
