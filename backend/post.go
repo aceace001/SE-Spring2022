@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
 	"strings"
 	"time"
 )
@@ -13,6 +14,7 @@ var(
 	ErrInvalidContent = errors.New("invalid content")
 	//ErrInvalidSpoiler used for invalid spoiler title.
 	ErrInvalidSpoiler = errors.New("invalid spoiler")
+	ErrUnauthenticated = errors.New("Unauthenticated")
 )
 
 //post model
@@ -62,15 +64,80 @@ func (s *Service) CreatePost(
 	query :="INSERT INTO posts (user_id, content, spoiler_of, nsfw) VALUES ($1, $2, $3, $4) "+
 		"RETURNIG id, created_at"
 	if err = tx.QueryRowContext(ctx, query, uid, content, spoilerOf, nsfw).
-		Scan(&ti.Post.ID, &ti.Post.CreatedAt); err != nil{
-			return ti, fmt.Errorf("could not insert post:%v",err)
+		Scan(&ti.Post.ID, &ti.Post.CreatedAt); err != nil {
+		return ti, fmt.Errorf("could not insert post:%v", err)
+	}
+
+	ti.Post.UerID = uid
+	ti.post.Content = content
+	ti.Post.SpoilerOf = spoilerOf
+	ti.Post.NSFW = nsfw
+	ti.Post.Mine = true
+
+	query = "INSERT INTO timeline (user_id, post_id) VALUES ($1, $2) RETURNING id"
+	if err = tx.QueryRowContext(ctx, query, uid, ti.Post.ID).Scan(&ti.ID); err != nil {
+		return ti, fmt.Errorf("could not insert timeline item: %v", err)
+	}
+
+	ti.UerID = uid
+	ti.postID = ti.Post.ID
+
+	if err = tx.Commit(); err !=nil{
+		return ti, fmt.Errorf("could not commit to create post: %v", err)
+	}
+
+	go func(p Post) {
+		u, err := s.userByID(context.Background(), p.UserID)
+		if err != nil {
+			log.Printf("could not get post user: %v\n", err)
+			return
 		}
 
-		ti.Post.UerID = uid
-		ti.post.Content = content
-		ti.Post.SpoilerOf = spoilerOf
-		ti.Post.NSFW = nsfw
-		ti.Post.Mine = true
+		p.User = &u
+		p.Mine = false
 
-	return ti,nil
+		tt, err := s.fanoutPost(p)
+		if err != nil {
+			log.Printf("could not fanout post: %v\n", err)
+			return
+		}
+
+		for _, ti = range tt {
+			log.Println(litter.Sdump(ti))
+			//TODO:broadcast timeline items.
+		}
+
+	}(ti.Post)
+
+	return ti, nil
+}
+
+func (s *Service) fanoutPost(p Post) ([]TimelineItem, error) {
+	query := "INSERT INTO timeline(user_id, post_id)" +
+		"SELECT follwer_id, $1 FROM follows WHERE followee_id = $2" +
+		"RETURNING id, user_id"
+	rows, err := s.db.Query(query, p.ID, p.UserID)
+	if err != nil {
+		return nil, fmt.Errorf("could not insert timeline: %v", err)
+	}
+
+	defer rows.Close()
+
+	tt := []TimelineItem{}
+	for rows.Next() {
+		var ti TimelineItem
+		if err = rows.Scan(&ti.ID, &ti.UserID); err != nil {
+			return nil, fmt.Errorf("could not scan timeline item: %v", err)
+		}
+
+		ti.PostID = p.ID
+		ti.Post = p
+		tt = append(tt, ti)
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, fmt.Errorf("could not iterate timeline rows: %v", err)
+	}
+
+	return tt, nil
 }
