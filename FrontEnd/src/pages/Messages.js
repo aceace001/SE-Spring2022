@@ -1,62 +1,81 @@
-import "./message.css";
+import React, { Component } from 'react';
+import ChatHistory from '../Components/Chats/ChatHistory';
+import ChatInput from '../Components/ChatInput/ChatInput';
+import { connect, sendMsg } from '../api';
 import Friends from "../Components/Friends";
-import Chat from "../Components/Chat";
 import Online from "../Components/Online";
 
-export default function Messenger() {
-    return (
-        <>
-        <div className="messenger">
-            <div className="chatMenu">
-                <div className="chatMenuWrapper">
-                    <input placeholder="Search for friends" className="chatMenuInput" />
-                    <Friends/>
-                    <Friends/>
-                    <Friends/>
-                    <Friends/>
-                    <Friends/>
 
-                </div>
-            </div>
-            <div className="chatBox">
-                <div className="currentchatter">
-                    <b>Arthur</b>
-                </div>
-                <div className="chatBoxWrapper">
-                    <Chat/>
-                    <Chat />
-                    <Chat own = {true}/>
-                    <Chat/>
-                    <Chat/>
-                    <Chat/>
-                    <Chat/>
-                    <Chat own = {true}/>
-                    <Chat/>
-                    <Chat/>
-                    <Chat/>
-                    <Chat own = {true}/>
-                    <Chat/>
-                    <Chat/>
-                    <Chat/>
-                    <Chat/>
-                    <Chat/>
+class MessageMain extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            chatHistory: []
+        }
+    }
 
-                </div>
-                <div className="chatBoxBottom">
-                    <textarea className="Input" placeholder="Text something..."></textarea>
-                    <button className="ChatBut">Send</button>
-                </div>
+    componentDidMount() {
+        connect((msg) => {
+            console.log("New Message")
+            this.setState(prevState => ({
+                chatHistory: [...prevState.chatHistory, msg]
+            }))
+            console.log(this.state);
+        });
+    }
+
+    send(event) {
+        if (event.keyCode === 13) {
+            sendMsg(event.target.value);
+            event.target.value = "";
+        }
+    }
+
+    render() {
+        return (
+            <div className="App">
+
+                <>
+                    <div className="messenger">
+                        <div className="chatMenu">
+                            <div className="chatMenuWrapper">
+                                <input placeholder="Search for friends" className="chatMenuInput"/>
+                                <Friends/>
+                                <Friends/>
+                                <Friends/>
+                                <Friends/>
+                                <Friends/>
+
+                            </div>
+                        </div>
+
+                        <div className="chatBox">
+                            <div className="currentchatter">
+                                <b>Arthur</b>
+                            </div>
+
+                            <ChatHistory chatHistory={this.state.chatHistory} />
+
+                            <ChatInput send={this.send} />
+
+                        </div>
+                        <div className="chatOnline">
+                            <div className="chatOnlineWrapper">
+                                <Online/>
+                                <Online/>
+                                <Online/>
+                                <Online/>
+                                <Online/>
+                            </div>
+                        </div>
+                    </div>
+                </>
+                );
+                }
+
             </div>
-            <div className="chatOnline">
-                <div className="chatOnlineWrapper">
-                    <Online/>
-                    <Online/>
-                    <Online/>
-                    <Online/>
-                    <Online/>
-                </div>
-            </div>
-        </div>
-</>
-);
+        );
+    }
 }
+
+export default MessageMain;
