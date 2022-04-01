@@ -159,15 +159,25 @@ func (s *Service) Posts() {
 	last = normalizePageSize(last)
 	buildQuery(`
 		SELECT id, content, spoiler_of, nsfw, likes_count, created_at
-		{{if .auth}}
+		{{if .auth}} 
+		, posts.user_id = @uid AS mine,
+		, likes.user_id IS NOT NULL AS liked 
 		{{end}}
 		FROM posts
+		{{if .auth}}
+		LEFT JOIN post_likes AS likes
+			ON likes.user_id = @uid AND likes.post_id = posts.id 
+		{{end}}
 		WHERE posts.user_id = (SELECT id FROM users WHERE username = @username)
+		{{if .before}}AND posts.id < @before{{end}}
 		ORDER BY created_at DESC 
 		LIMIT @last
 	`, map[string]interface{}{
+		"auth": auth,
+		"uid": uid,
 		"username":username,
 		"last": last,
+		"before": becore,
 	})
 	return nil, nil 
 }
