@@ -200,8 +200,11 @@ func (s *Service) Posts() {
 		if err = rows.Scan(dest...); err != nil {
 			return nil, fmt.Errorf("could not scan post: %v", err)
 		}
-
+		if err = rows.Err(); err != nil {
+			return nil, fmt.Errorf("could not iterate posts rows: %v", err)
+		}
 		pp = append(pp, p)
 	}
-	return nil, nil 
+
+	return pp, nil 
 }
