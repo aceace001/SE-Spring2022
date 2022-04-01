@@ -151,5 +151,23 @@ func (s *Service) Posts() {
 	last int,
 	before int64,
 } ([]Post, error) {
+	username = strings.TrimSpace(username)
+	if !rxUsername.MatchString(username) {
+		return nil, ErrInvalidUsername 
+	}
+	uid, auth := ctx.Value(KeyAuthUserID).(int64)
+	last = normalizePageSize(last)
+	buildQuery(`
+		SELECT id, content, spoiler_of, nsfw, likes_count, created_at
+		{{if .auth}}
+		{{end}}
+		FROM posts
+		WHERE posts.user_id = (SELECT id FROM users WHERE username = @username)
+		ORDER BY created_at DESC 
+		LIMIT @last
+	`, map[string]interface{}{
+		"username":username,
+		"last": last,
+	})
 	return nil, nil 
 }
