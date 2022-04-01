@@ -1,4 +1,4 @@
-module github.com/TutorialEdge/realtime-chat-go-react
+module github.com/aceace001/SE-Spring2022/backend-Chat
 
 go 1.18
 
