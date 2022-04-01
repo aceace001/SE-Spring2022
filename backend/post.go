@@ -184,5 +184,9 @@ func (s *Service) Posts() {
 	}
 
 	rows, err := s.db.QueryContext(ctx, query, args...)
+	if err != nil {
+		return nil.fmt.Errorf("could not query select posts:")
+	}
+	
 	return nil, nil 
 }
