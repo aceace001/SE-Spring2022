@@ -157,7 +157,7 @@ func (s *Service) Posts() {
 	}
 	uid, auth := ctx.Value(KeyAuthUserID).(int64)
 	last = normalizePageSize(last)
-	buildQuery(`
+	query, args, err := buildQuery(`
 		SELECT id, content, spoiler_of, nsfw, likes_count, created_at
 		{{if .auth}} 
 		, posts.user_id = @uid AS mine,
@@ -179,5 +179,10 @@ func (s *Service) Posts() {
 		"last": last,
 		"before": becore,
 	})
+	if err != nil {
+		return nil, fmt.Errorf("could not build posts sql query: %v", err) 
+	}
+
+	rows, err := s.db.QueryContext(ctx, query, args...)
 	return nil, nil 
 }
