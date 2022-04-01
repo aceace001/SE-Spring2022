@@ -24,9 +24,11 @@ type Post struct {
 	Content   string    `json:"content"`
 	SpoilerOf *string   `json:"spoilerOf"`
 	NSFW      bool      `json:"nsfw"`
+	LikesCount int 		`json:"likesCount"`
 	CreatedAt time.Time `json:"createdAt"`
 	User      *User     `json:"user.omitempty"`
 	Mine      bool      `json:"mine"`
+	Liked	  bool		`json:"liked"`
 }
 
 //CreatePost publishes a post the user timeline and fan-outs it to his follwers
@@ -140,4 +142,14 @@ func (s *Service) fanoutPost(p Post) ([]TimelineItem, error) {
 	}
 
 	return tt, nil
+}
+
+// get posts from a user in descending order
+func (s *Service) Posts() {
+	ctx context.Context,
+	username string,
+	last int,
+	before int64,
+} ([]Post, error) {
+	return nil, nil 
 }
