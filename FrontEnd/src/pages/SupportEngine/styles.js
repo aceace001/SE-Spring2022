@@ -5,7 +5,7 @@ export const styles = {
         // Border
         borderRadius: '33%',
         // Background 
-        backgroundImage: `url(89-893956_transparent-background-bot-icon-hd-png-download.png)`, 
+        backgroundImage: `url(chatbot.png)`, 
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize: '84px',
