@@ -187,6 +187,21 @@ func (s *Service) Posts() {
 	if err != nil {
 		return nil.fmt.Errorf("could not query select posts:")
 	}
-	
+
+	defer rows.Close()
+
+	pp := make([]Post, 0, last)
+	for rows.Next() {
+		var p Post 
+		dest := []interface{}{&p.ID, &p.Content, &p.SpoilerOf, &p.NSFW, &p.LikesCount, &p.CreatedAt}
+		if auth {
+			dest = append(dest, &p.Mine, &p.Liked)
+		}
+		if err = rows.Scan(dest...); err != nil {
+			return nil, fmt.Errorf("could not scan post: %v", err)
+		}
+
+		pp = append(pp, p)
+	}
 	return nil, nil 
 }
