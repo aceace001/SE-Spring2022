@@ -4,7 +4,7 @@ import (
 	"flag"
 	"net/http"
 
-	"github.com/TutorialEdge/realtime-chat-go-react/pkg/websocket"
+	"github.com/aceace001/SE-Spring2022/backend-Chat/pkg/websocket"
 )
 
 var addr = flag.String("addr", ":8080", "http service address")
