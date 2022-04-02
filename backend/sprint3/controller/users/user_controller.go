@@ -139,5 +139,15 @@ func PostHomePage(c *gin.Context) {
 
 // search posts
 func FindPosts(c *gin.Context) {
+
+}
+
+// update posts
+func UpdatePosts(c *gin.Context) {
+
+}
+
+// delete posts
+func DeletePosts(c *gin.Context) {
 	
 }
