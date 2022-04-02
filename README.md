@@ -3,6 +3,8 @@ This time we combine the frontend and backend together, and further development 
 
 Everything for backend was placed under "BackEnd" folder, and everything for frontend was under "FrontEnd" folder.
 
+
+
 # Sprint 3 Frontend Support Chat and Support Page
 Contributor: Fugang Deng\
 Framework: react\
@@ -21,6 +23,11 @@ Framework: Gin\
 Features: In this sprint, users can create posts, list posts, update posts and delete posts. 
 How To Run: go run main.go (more details please check sprint2_backend.mov in backend/sprint3 folder.)
 
+Contributor: Yuhan Jin\
+Features:\
+1.Modify the function of sprint2, follow the GIN framework in sprint1\
+2.add the function of post in sprint3,Realize the user's dynamic update function (CURD)\
+3.add Friends list viewing , adding new friend functions (only part of the code has been completed)
 # Sprint 2 Backend
 Contributor: Yuhan Jin\
 Framework: Gin\
