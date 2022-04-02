@@ -12,6 +12,9 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
 const (
@@ -137,9 +140,20 @@ func PostHomePage(c *gin.Context) {
 	})
 }
 
+type Book struct {
+	ID     int64  `json:"id" gorm:"primary_key"`
+	Title  string `json:"title"`
+	Author string `json:"author"`
+}
+
+var DB *gorm.DB 
+
 // search posts
 func FindPosts(c *gin.Context) {
+	var books []models.Book
+	models.DB.Find(&books)
 
+	c.JSON(http.StatusOK, gin.H{"messges": books})
 }
 
 // update posts
@@ -149,5 +163,5 @@ func UpdatePosts(c *gin.Context) {
 
 // delete posts
 func DeletePosts(c *gin.Context) {
-	
+
 }
