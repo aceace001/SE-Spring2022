@@ -148,6 +148,18 @@ type Book struct {
 
 var DB *gorm.DB 
 
+func ConnectDatabase() {
+	database, err := gorm.Open("Sqlites", "test.db")
+
+	if err != nil {
+		panic("Failed to connect to database!")
+	}
+
+	database.AutoMigrate(&Book{})
+
+	DB = database 
+}
+
 // search posts
 func FindPosts(c *gin.Context) {
 	var books []models.Book
