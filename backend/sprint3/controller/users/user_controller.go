@@ -15,7 +15,7 @@ import (
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
-	"github.com/rahmanfadhil/gin-bookstore/models"
+	// "github.com/rahmanfadhil/gin-bookstore/models"
 )
 
 const (
@@ -133,6 +133,7 @@ type Book struct {
 	ID     int64  `json:"id" gorm:"primary_key"`
 	Title  string `json:"title"`
 	Author string `json:"author"`
+	// Content string `json:"content"`
 }
 
 var DB *gorm.DB
@@ -152,6 +153,7 @@ func ConnectDatabase() {
 type CreatePostsInput struct {
 	Title  string `json:"title"  binding:"required"`
 	Author string `json:"author" binding:"required"`
+	// Content string `json:"content" binding:"required"`
 }
 
 // create posts
