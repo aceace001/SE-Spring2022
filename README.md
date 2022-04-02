@@ -1,5 +1,5 @@
 
-This time we combinde the frontend and backend together, and furthur development in more pages and their functionalities. Everything we worked on this time were ALL placed under "main-branch" default branch with clear history of committments. 
+This time we combine the frontend and backend together, and further development in more pages and their functionalities. Everything we worked on this time were ALL placed under "main-branch" default branch with clear history of committments. 
 
 Everything for backend was placed under "BackEnd" folder, and everything for frontend was under "FrontEnd" folder.
 
@@ -15,6 +15,11 @@ HowToRun: First, you should only put the files in the FrontEnd in one project. T
           npm i @ant-design/icons\
           Finally, put npm run in the terminal.\
 This specific functionality is placed in the branch "main-branch/FrontEnd"
+# Sprint 3 Backend
+Contributor: Dafei Du\
+Framework: Gin\
+Features: In this sprint, users can create posts, list posts, update posts and delete posts. 
+How To Run: go run main.go (more details please check sprint2_backend.mov in backend/sprint3 folder.)
 
 # Sprint 2 Backend
 Contributor: Yuhan Jin\
