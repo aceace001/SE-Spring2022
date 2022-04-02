@@ -15,6 +15,7 @@ import (
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
+	"github.com/rahmanfadhil/gin-bookstore/models"
 )
 
 const (
