@@ -6,6 +6,8 @@ import (
 	"main/domain/users"
 	"main/services"
 	"main/utils/errors"
+
+	// "main/models"
 	"net/http"
 	"strconv"
 	"time"
@@ -13,9 +15,8 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 
-	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
-	// "github.com/rahmanfadhil/gin-bookstore/models"
+	"github.com/rahmanfadhil/gin-bookstore/models"
 )
 
 const (
@@ -129,30 +130,30 @@ func HomePage(c *gin.Context) {
 	})
 }
 
-type Book struct {
-	ID     int64  `json:"id" gorm:"primary_key"`
-	Title  string `json:"title"`
-	Author string `json:"author"`
-	// Content string `json:"content"`
-}
+// type Book struct {
+// 	ID     int64  `json:"id" gorm:"primary_key"`
+// 	Title  string `json:"title"`
+// 	Author string `json:"author"`
+// 	// Content string `json:"content"`
+// }
 
-var DB *gorm.DB
+// var DB *gorm.DB
 
-func ConnectDatabase() {
-	database, err := gorm.Open("Sqlites", "test.db")
+// func ConnectDatabase() {
+// 	database, err := gorm.Open("Sqlites", "test.db")
 
-	if err != nil {
-		panic("Failed to connect to database!")
-	}
+// 	if err != nil {
+// 		panic("Failed to connect to database!")
+// 	}
 
-	database.AutoMigrate(&Book{})
+// 	database.AutoMigrate(&Book{})
 
-	DB = database
-}
+// 	DB = database
+// }
 
 type CreatePostsInput struct {
-	Title  string `json:"title"  binding:"required"`
-	Author string `json:"author" binding:"required"`
+	Title   string `json:"title"  binding:"required"`
+	Author  string `json:"author" binding:"required"`
 	// Content string `json:"content" binding:"required"`
 }
 
@@ -181,6 +182,15 @@ func FindPosts(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"messges": books})
 }
 
+// search a post
+func FindAPost(c *gin.Context) {
+	var book models.Book 
+	if err := models.DB.Where("id = ?", c.Param("id")).First(&book).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found"})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"message": book})
+}
 // update posts
 func UpdatePosts(c *gin.Context) {
 
