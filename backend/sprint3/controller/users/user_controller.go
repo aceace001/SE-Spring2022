@@ -2,7 +2,7 @@ package users
 
 import (
 	"fmt"
-	"io/ioutil"
+	// "io/ioutil"
 	"main/domain/users"
 	"main/services"
 	"main/utils/errors"
@@ -129,25 +129,13 @@ func HomePage(c *gin.Context) {
 	})
 }
 
-// create posts
-func PostHomePage(c *gin.Context) {
-	body := c.Request.Body
-	value, err := ioutil.ReadAll(body)
-	if err != nil {
-		fmt.Println(err.Error())
-	}
-	c.JSON(200, gin.H{
-		"message": string(value),
-	})
-}
-
 type Book struct {
 	ID     int64  `json:"id" gorm:"primary_key"`
 	Title  string `json:"title"`
 	Author string `json:"author"`
 }
 
-var DB *gorm.DB 
+var DB *gorm.DB
 
 func ConnectDatabase() {
 	database, err := gorm.Open("Sqlites", "test.db")
@@ -158,7 +146,29 @@ func ConnectDatabase() {
 
 	database.AutoMigrate(&Book{})
 
-	DB = database 
+	DB = database
+}
+
+type CreatePostsInput struct {
+	Title  string `json:"title"  binding:"required"`
+	Author string `json:"author" binding:"required"`
+}
+
+// create posts
+func PostHomePage(c *gin.Context) {
+	fmt.Println("create posts")
+	// Validate input
+	var input CreatePostsInput
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Create book
+	book := models.Book{Title: input.Title, Author: input.Author}
+	models.DB.Create(&book)
+
+	c.JSON(http.StatusOK, gin.H{"message": book})
 }
 
 // search posts
