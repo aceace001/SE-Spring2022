@@ -157,6 +157,11 @@ type CreatePostsInput struct {
 	// Content string `json:"content" binding:"required"`
 }
 
+type UpdatePostsInput struct {
+	Title   string `json:"title"`
+	Author  string `json:"author"`
+}
+
 // create posts
 func PostHomePage(c *gin.Context) {
 	fmt.Println("create posts")
@@ -200,7 +205,7 @@ func UpdatePosts(c *gin.Context) {
 	} 
 
 	// validate input 
-	var input UpdateBookInput 
+	var input UpdatePostsInput 
 	if err := c.ShouldBindJSON(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error})
 		return
@@ -212,5 +217,12 @@ func UpdatePosts(c *gin.Context) {
 
 // delete posts
 func DeletePosts(c *gin.Context) {
+	var book models.Book 
+	if err := models.DB.Where("id = ?", c.Param("id")).First(&book).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found!"})
+		return 
+	}
+	models.DB.Delete(&book)
 
+	c.JSON(http.StatusOK, gin.H{"data": true})
 }
