@@ -27,8 +27,14 @@ This specific functionality is placed in the branch "main-branch/FrontEnd"
 # Sprint 3 Backend
 Contributor: Dafei Du\
 Framework: Gin\
-Features: In this sprint, users can create posts, list posts, update posts and delete posts. 
-How To Run: go run main.go (more details please check sprint2_backend.mov in backend/sprint3 folder.)
+Features:\
+In this sprint, users can create posts, list posts, update posts and delete posts.\
+1. create posts: users need input their name and some content to create a post.\
+2. list posts: users can view all posts, or search exactly one post by searching post id.\
+3. update posts: users can edits their posts.\
+4. delete posts: users can delete their posts.\
+ 
+How To Run: go run main.go (to see more details, please check sprint3-backend-demo.mov in backend/sprint3 folder.)
 
 Contributor: Yuhan Jin\
 Features:\
