@@ -1,8 +1,10 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 	"main/app"
+
+	"github.com/rahmanfadhil/gin-bookstore/models"
 
 	// "github.com/gin-gonic/gin"
 )
@@ -21,5 +23,6 @@ import (
 // }
 func main() {
 	// sprint 1
+	models.ConnectDatabase()
 	app.StartApplication()
 }
