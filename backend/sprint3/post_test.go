@@ -6,7 +6,7 @@ import (
  m "SE-Spring2022/backend/sprint3"	
 )
 
-func TestPost(t *testing.T) {
+func TestPostHomePage(t *testing.T) {
 	testData := []struct {
 	Title   string `json:"title"  binding:"required"`
 	Author  string `json:"author" binding:"required"`
