@@ -2,6 +2,9 @@ package users
 
 import (
 	"testing"
+	"io/ioutil"
+	"net"
+	"net/http"
 	// "SE-Spring2022/backend/sprint3"
 )
 
@@ -10,7 +13,7 @@ import (
 // 		Title  string `json:"title"  binding:"required"`
 // 		Author string `json:"author" binding:"required"`
 // 	}{
-// 		// #predefined parameters
+// 		// predefined parameters
 // 		{"Abc", "a"},
 // 		{"Aaa", "bbbb"},
 // 		{"Aaa", "bbbb"},
@@ -44,3 +47,14 @@ func TestAdd(t *testing.T) {
 		t.Errorf("-10 + -20 expected be -30, but %d got", ans)
 	}
 }
+
+// func TestHomePage(t *testing.T) {
+// 	req := httptest.NewRequest("GET", "http://example.com/foo", nil)
+// 	w := httptest.NewRecorder()
+// 	// helloHandler(w, req)
+// 	bytes, _ := ioutil.ReadAll(w.Result().Body)
+
+// 	if string(bytes) != "hello world" {
+// 		t.Fatal("expected hello world, but got", string(bytes))
+// 	}
+// }
