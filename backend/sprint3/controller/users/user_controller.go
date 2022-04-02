@@ -23,6 +23,16 @@ const (
 	SecretKey = "qwe123"
 )
 
+// unit test starts
+func Add(a int, b int) int {
+    return a + b
+}
+
+func Mul(a int, b int) int {
+    return a * b
+}
+// ends 
+
 //  users register an account
 func Register(c *gin.Context) {
 	var user users.User
