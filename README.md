@@ -3,6 +3,13 @@ This time we combine the frontend and backend together, and further development 
 
 Everything for backend was placed under "BackEnd" folder, and everything for frontend was under "FrontEnd" folder.
 
+# Sprint 3 Frontend Real Time Public Chat with mutiple clients
+Contributor: Yuhao Shi\
+Framework: react\
+Temporary backend: Go\
+Files and folders for this functionality: "Frontend" & "backend-Chat" under "main-branch"\
+How to run: run "npm install" for react packages and "npm start" to start the application; run "go build main" for the temporary backend. (Also Showcased in the demo video).\
+Funtionalities for this Sprint: Real-time Public Chat between multiple users was implemented, users will be able to send and read text massages in real time under "Messages" page. Everyone who joined the local host address "8080" will be able to see the chat history. Notifications will also be seen when new users joined or left the channel. The Frontend was modified so that it will send message data and recieve data from WebSockets. To implement these, I wrote a seperate backend under "backend-Chat" folder because our previous backend was not really capable of combining it with the frontend, so another backend needs to be written from scratch for the real time chatting to work. We will modify the backend even more in the future for this functionality. (To see exactly how it works, a demo video is provided as "Sprint3-Frontend Chat.mp4").
 
 
 # Sprint 3 Frontend Support Chat and Support Page
