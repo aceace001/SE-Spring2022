@@ -1,17 +1,23 @@
-package models_test
+package main_test
 
 import (
 	"testing"
 
-	
+ m "SE-Spring2022/backend/sprint3"	
 )
 
 func TestPost(t *testing.T) {
 	testData := []struct {
-		title string
-		error bool
+	Title   string `json:"title"  binding:"required"`
+	Author  string `json:"author" binding:"required"`
 	}{
-		#predefined parameters
+	#predefined parameters
+	{"Abc", a},
+	{"Aaa", bbbb},
+	{"Aaa", bbbb},
+	{"123", xyz},
+	{"123", xyz},
+	{"This is a sample post", xyz},
 	}
 
 	for _, dat := range testData {
