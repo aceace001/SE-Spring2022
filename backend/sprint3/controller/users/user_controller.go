@@ -125,6 +125,7 @@ func HomePage(c *gin.Context) {
 	})
 }
 
+// create posts
 func PostHomePage(c *gin.Context) {
 	body := c.Request.Body
 	value, err := ioutil.ReadAll(body)
