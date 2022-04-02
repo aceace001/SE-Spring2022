@@ -20,13 +20,6 @@ import (
 // 	})
 // }
 func main() {
-	// sprint 3
-	fmt.Println("*****hello*******")
-	// r := gin.Default()
-	// r.GET("/", HomePage)
-	// r.POST("/", PostHomePage)
-	// r.Run()
-
 	// sprint 1
 	app.StartApplication()
 }
