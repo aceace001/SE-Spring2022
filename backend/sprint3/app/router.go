@@ -28,5 +28,9 @@ func mapUrls() {
 	// sprint3
 	router.GET("/", users.HomePage)
 	router.POST("/post", users.PostHomePage)
+	
+	router.GET("/post/:id", users.FindPosts)
+	router.PATCH("/post/:id", users.UpdatePosts)
+	router.DELETE("/post/:id", users.DeletePosts)
 
 }

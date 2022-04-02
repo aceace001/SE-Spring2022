@@ -12,6 +12,10 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
+
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
+	"github.com/rahmanfadhil/gin-bookstore/models"
 )
 
 const (
@@ -118,13 +122,14 @@ func Email(c *gin.Context) {
 }
 
 // sprint3
-// create posts
+// create homepage
 func HomePage(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": "Welcome to ...",
 	})
 }
 
+// create posts
 func PostHomePage(c *gin.Context) {
 	body := c.Request.Body
 	value, err := ioutil.ReadAll(body)
@@ -134,4 +139,42 @@ func PostHomePage(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": string(value),
 	})
+}
+
+type Book struct {
+	ID     int64  `json:"id" gorm:"primary_key"`
+	Title  string `json:"title"`
+	Author string `json:"author"`
+}
+
+var DB *gorm.DB 
+
+func ConnectDatabase() {
+	database, err := gorm.Open("Sqlites", "test.db")
+
+	if err != nil {
+		panic("Failed to connect to database!")
+	}
+
+	database.AutoMigrate(&Book{})
+
+	DB = database 
+}
+
+// search posts
+func FindPosts(c *gin.Context) {
+	var books []models.Book
+	models.DB.Find(&books)
+
+	c.JSON(http.StatusOK, gin.H{"messges": books})
+}
+
+// update posts
+func UpdatePosts(c *gin.Context) {
+
+}
+
+// delete posts
+func DeletePosts(c *gin.Context) {
+
 }

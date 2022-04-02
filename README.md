@@ -3,6 +3,19 @@ This time we combinde the frontend and backend together, and furthur development
 
 Everything for backend was placed under "BackEnd" folder, and everything for frontend was under "FrontEnd" folder.
 
+# Sprint 3 Frontend Support Chat and Support Page
+Contributor: Fugang Deng\
+Framework: react\
+Package: axios, cypress , cypress testing library, ant-design, react-chat-engine\
+Function: At the bottom-right of the website, there is a chatbot image surronding with bule color, once you move the mouse over, it will show "Support Chat Here!!!" and the bule side will disappear. Then, click that, there will be the UI show up to let you enter the email. Once, you enter the email, the chat window will show up and you can chat.\
+Testing: The cypress testing require npm install cypress and npm install --save-dev cypress @testing-library/cypress, and put import '@testing-library/cypress/add-commands' in the cypress/support/command.js. I changed to 'test' in package.json to 'cypress open'. Once you do npm start, then open a new terminal type npm test. The cypress interface will show up and double the homepage.js, the test will begin. All the test codes are in the homepage.js in cypress/intergartion. You will see an error on the second test because we need backend to send something to do the fetch, other than that, all the test are good. For, the new functionality I did not write the code for the purpose of testing, so cypress cannot find the exact location of to hover and click, so more test details will show in the Sprint3SupportChat vedio. \
+HowToRun: First, you should only put the files in the FrontEnd in one project. Then install these 3 packages as following:\
+          npm i axios\
+          npm install react-chat-engine --save\
+          npm i @ant-design/icons\
+          Finally, put npm run in the terminal.\
+This specific functionality is placed in the branch "main-branch/FrontEnd"
+
 # Sprint 2 Backend
 Contributor: Yuhan Jin\
 Framework: Gin\
