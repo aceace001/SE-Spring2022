@@ -39,4 +39,8 @@ describe("renders the home page",() => {
         cy.get('#chatcontent').type('check click send button this time')
         cy.findByRole('button',{name: /Send/i}).click();
     });
+    it("allows the users to hoverover the chatbot avatar", ()=>{
+        cy.visit("/")
+        cy.contains('Support Chat Here!!!').trigger('mouseover',{force:true})
+    });
 });
