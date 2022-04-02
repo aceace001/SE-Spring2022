@@ -118,7 +118,7 @@ func Email(c *gin.Context) {
 }
 
 // sprint3
-// create posts
+// create homepage
 func HomePage(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": "Welcome to ...",
@@ -135,4 +135,9 @@ func PostHomePage(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": string(value),
 	})
+}
+
+// search posts
+func FindPosts(c *gin.Context) {
+	
 }
