@@ -16,6 +16,13 @@ func (u *userService) ModifyUserInfo(user *model.User) error {
 	return nil
 }
 
+func (u *userService) GetUserDetails(uuid string) model.User {
+	var queryUser *model.User
+	db := pool.GetDB()
+	db.Select("uuid", "username", "nickname", "avatar").First(&queryUser, "uuid = ?", uuid)
+	return *queryUser
+}
+
 unc (u *userService) GetUserList(uuid string) []model.User {
 	db := pool.GetDB()
 
