@@ -1,4 +1,21 @@
 //service/user_service.go
+func (u *userService) ModifyUserInfo(user *model.User) error {
+	var queryUser *model.User
+	db := pool.GetDB()
+	db.First(&queryUser, "username = ?", user.Username)
+	log.Logger.Debug("queryUser", log.Any("queryUser", queryUser))
+	var nullId int32 = 0
+	if nullId == queryUser.Id {
+		return errors.New("用户不存在")
+	}
+	queryUser.Nickname = user.Nickname
+	queryUser.Email = user.Email
+	queryUser.Password = user.Password
+
+	db.Save(queryUser)
+	return nil
+}
+
 func (u *userService) AddFriend(userFriendRequest *request.FriendRequest) error {
     var queryUser *model.User
     db := pool.GetDB()//connect to database
