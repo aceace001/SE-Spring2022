@@ -72,3 +72,17 @@ func (u *userService) AddFriend(userFriendRequest *request.FriendRequest) error 
 
     return nil
 }
+
+// modify users avatar(driven by svaefile)
+func (u *userService) ModifyUserAvatar(avatar string, userUuid string) error {
+	var queryUser *model.User
+	db := pool.GetDB()
+	db.First(&queryUser, "uuid = ?", userUuid)
+
+	if NULL_ID == queryUser.Id {
+		return errors.New("user does not exist")
+	}
+
+	db.Model(&queryUser).Update("avatar", avatar)
+	return nil
+}
