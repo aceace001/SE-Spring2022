@@ -6,7 +6,7 @@ func (u *userService) ModifyUserInfo(user *model.User) error {
 	log.Logger.Debug("queryUser", log.Any("queryUser", queryUser))
 	var nullId int32 = 0
 	if nullId == queryUser.Id {
-		return errors.New("用户不存在")
+		return errors.New("User does not exist")
 	}
 	queryUser.Nickname = user.Nickname
 	queryUser.Email = user.Email
