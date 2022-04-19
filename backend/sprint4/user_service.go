@@ -16,6 +16,22 @@ func (u *userService) ModifyUserInfo(user *model.User) error {
 	return nil
 }
 
+unc (u *userService) GetUserList(uuid string) []model.User {
+	db := pool.GetDB()
+
+	var queryUser *model.User
+	db.First(&queryUser, "uuid = ?", uuid)
+	var nullId int32 = 0
+	if nullId == queryUser.Id {
+		return nil
+	}
+
+	var queryUsers []model.User
+	db.Raw("SELECT u.username, u.uuid, u.avatar FROM user_friends AS uf JOIN users AS u ON uf.friend_id = u.id WHERE uf.user_id = ?", queryUser.Id).Scan(&queryUsers)
+
+	return queryUsers
+}
+
 func (u *userService) AddFriend(userFriendRequest *request.FriendRequest) error {
     var queryUser *model.User
     db := pool.GetDB()//connect to database
