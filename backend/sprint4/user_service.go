@@ -6,13 +6,13 @@ func (u *userService) AddFriend(userFriendRequest *request.FriendRequest) error 
     log.Logger.Debug("queryUser", log.Any("queryUser", queryUser))
     var nullId int32 = 0
     if nullId == queryUser.Id {
-        return errors.New("用户不存在")
+        return errors.New("User does not exist")
     }
 
     var friend *model.User
     db.First(&friend, "username = ?", userFriendRequest.FriendUsername)
     if nullId == friend.Id {
-        return errors.New("已添加该好友")
+        return errors.New("this friend has been added")
     }
 
     userFriend := model.UserFriend{
@@ -23,7 +23,7 @@ func (u *userService) AddFriend(userFriendRequest *request.FriendRequest) error 
     var userFriendQuery *model.UserFriend
     db.First(&userFriendQuery, "user_id = ? and friend_id = ?", queryUser.Id, friend.Id)
     if userFriendQuery.ID != nullId {
-        return errors.New("该用户已经是你好友")
+        return errors.New("This user is already your friend")
     }
 
     db.AutoMigrate(&userFriend)
