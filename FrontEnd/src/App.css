@@ -30,17 +30,45 @@
   font-family: 'Lato', sans-serif;
 }
 
-.search, 
+.users{
+   max-width: 800px;
+   align-items: center;
+   margin:100px auto;
+   justify-content: center;
+} 
+
+.users button{
+  margin: 50px;
+  width: 100px;
+}
 .messages,
 .addfriends,
 .posts,
 .settings,
-.users,
 .support{
   display: flex;
   height: 90vh;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+}
+.search{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.search input{
+  margin-top: 20px;
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+p{
+  margin: 10px;
+  font-size: 18px;
 }
 
