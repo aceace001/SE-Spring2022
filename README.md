@@ -14,7 +14,7 @@ Framework: react\
 Files and folders added or modified under "Frontend" folder.\
 How to run: 1. Frontend: run "npm install" for react packages and "npm start" to start the application; 2. run "go build main" and "go run main.go" for the two backend under folder "backend" and "backend-Chat" seperatly. 3. Before running, install module "react-twitter-embed" and "react-chat-engine".
 
-
+Funtionalities for this sprint: Added "post" page where users can post their tweets on the web for others to view. Combined frontend and backend with functionalities including login/register, post and view tweets, and real-time chatting between multiple users. Users can now register and login with the same username and password, post any texts on the web page for all other users to see, and have real-time public chatting with any user who joined the session while seeing their login and logout status. Also added additional feature: a simple embed Twitter Widget with tweet feed directly from UF's Twitter account.
 
 
 
