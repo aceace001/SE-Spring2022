@@ -14,7 +14,8 @@ const Avatar = props => {
             >
                 Support Chat Here!!!
             </div>
-            <div
+            <button
+                id = 'avatar'
                 className='transition-3'
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
@@ -23,7 +24,9 @@ const Avatar = props => {
                     ...styles.chatWithMeButton,
                     ...{ border: hovered ? '1px solid #f9f0ff': '8px solid #ADD8E6'}
                 }}
-            />
+            >
+                Clickme
+            </button>
         </div>
     )
 }
