@@ -8,6 +8,7 @@ const SupportAdmin = () =>{
             userName='Fugang Deng'
             userSecret='Fugang625!'
             height='calc(100vh - 20px)'
+            offset={-4}
         />
     )
 }
