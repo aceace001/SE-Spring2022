@@ -1,7 +1,33 @@
+# Sprint 4 Final product Description
 
-This time we combine the frontend and backend together, and further development in more pages and their functionalities. Everything we worked on this time were ALL placed under "main-branch" default branch with clear history of committments. 
 
-Everything for backend was placed under "BackEnd" folder, and everything for frontend was under "FrontEnd" folder.
+
+# Final Project demo 
+[![demo](https://i9.ytimg.com/vi/j_HJzqQ3_Tc/mq1.jpg?sqp=CLSYg5MG&rs=AOn4CLByKro9-cvzoM3Lq-xOUxaSbQ4s3w)](https://www.youtube.com/embed/j_HJzqQ3_Tc)</br>
+link: https://youtu.be/j_HJzqQ3_Tc
+
+
+
+# Sprint 4 Final product Completed
+# Sprint 4 BackEnd implemented account setting, public chat, and "post" funtionality 
+Contributor: Dafei Du\
+Framework: gin\
+Folder: backend/sprint4\
+How to run: 1. run "go run main.go" 
+Features: Users can register, login, logout account. After loging in their account, they can send message in a chat room. Every one who login their account can read the message. Users can also create a post, edit a post and delete a post. Other can read all posts or find specific one post by searching id.
+# Sprint 4 Final step of the web app, FrontEnd added "Post" page, and combined all functionalities with backend 
+Contributor: Yuhao Shi\
+Framework: react\
+Files and folders added or modified under "Frontend" folder.\
+How to run: 1. Frontend: run "npm install" for react packages and "npm start" to start the application; 2. run "go build main" and "go run main.go" for the two backend under folder "backend" and "backend-Chat" seperatly. 3. Before running, install module "react-twitter-embed" and "react-chat-engine".
+
+Funtionalities for this sprint: Added "post" page where users can post their tweets on the web for others to view. Combined frontend and backend with functionalities including login/register, post and view tweets, and real-time chatting between multiple users. Users can now register and login with the same username and password, post any texts on the web page for all other users to see, and have real-time public chatting with any user who joined the session while seeing their login and logout status. Also added additional feature: a simple embed Twitter Widget with tweet feed directly from UF's Twitter account.
+
+
+
+
+
+
 
 # Sprint 3 Frontend Real Time Public Chat with mutiple clients
 Contributor: Yuhao Shi\
