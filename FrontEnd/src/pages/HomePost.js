@@ -24,7 +24,7 @@ const HomePost = () => {
 
     return (
         <div>
-            {email ? "Welcome" + email :"Wrong username or password"}
+            {email ? "Welcome " + email :"Wrong username or password"}
         </div>
     )
 }

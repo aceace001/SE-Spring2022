@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ChatHistory.css';
-import Message from '../Messages1';
+import Message from '../Components/Messages1';
 
 class ChatHistory extends Component {
     render() {

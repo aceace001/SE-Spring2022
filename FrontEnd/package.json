@@ -3,15 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/icons": "^4.11.3",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "json-server": "^0.17.0",
     "react": "^17.0.2",
+    "react-chat-engine": "^1.11.22",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "react-twitter-embed": "^4.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

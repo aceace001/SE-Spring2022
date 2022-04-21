@@ -11,36 +11,14 @@ export const SidebarData = [
         icon: <AiIcons.AiFillHome />,
         cName: 'nav-text'
     },
-    {
-        title: "Settings",
-        path: '/Settings',
-        icon: <IoIcons.IoMdSettings />,
-        cName: 'nav-text'
-    },
-    {
-        title: "Users",
-        path: '/users',
-        icon: <FiIcons.FiUsers />,
-        cName: 'nav-text'
-    },
-    {
-        title: "Search",
-        path: '/search',
-        icon: <FiIcons.FiSearch />,
-        cName: 'nav-text'
-    },
+
     {
         title: "Messages",
         path: '/messages',
         icon: <FiIcons.FiMessageSquare />,
         cName: 'nav-text'
     },
-    {
-        title: "Addfriends",
-        path: '/addfriends',
-        icon: <FiIcons.FiUserPlus />,
-        cName: 'nav-text'
-    },
+
     {
         title: "Posts",
         path: '/posts',
