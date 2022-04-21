@@ -18,7 +18,6 @@ link: https://youtu.be/j_HJzqQ3_Tc
 
 # Final FrontEnd Cypress Test
 
-
 https://user-images.githubusercontent.com/49621024/164367117-be56490c-a71a-407f-9e82-793ffc5d1214.mp4
 
 # Sprint 4 Final step of the Front End Testing and some more functionality without backend and better way to interact with react-chat-engine 
@@ -30,13 +29,13 @@ How to run: Frontend: run "npm install" for react packages and "npm start" to st
 
 Contributon for this sprint:Test the support chat I did and all the other frontend. I have the cypress files with 15 test cases. I implemented the search user and get all the frineds name function with mock data in the serach and users path.
 
-# Sprint 4 Final product Completed
 # Sprint 4 BackEnd implemented account setting, public chat, and "post" funtionality 
 Contributor: Dafei Du\
 Framework: gin\
 Folder: backend/sprint4\
 How to run: 1. run "go run main.go" 
 Features: Users can register, login, logout account. After loging in their account, they can send message in a chat room. Every one who login their account can read the message. Users can also create a post, edit a post and delete a post. Other can read all posts or find specific one post by searching id.
+
 # Sprint 4 Final step of the web app, FrontEnd added "Post" page, and combined all functionalities with backend 
 Contributor: Yuhao Shi\
 Framework: react\
