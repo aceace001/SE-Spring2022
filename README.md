@@ -1,10 +1,33 @@
+# Sprint 4 Final product Completed
+
+# Final Project demo 
+[![demo](https://i9.ytimg.com/vi/j_HJzqQ3_Tc/mq1.jpg?sqp=CLSYg5MG&rs=AOn4CLByKro9-cvzoM3Lq-xOUxaSbQ4s3w)](https://www.youtube.com/embed/j_HJzqQ3_Tc)</br>
+link: https://youtu.be/j_HJzqQ3_Tc
+
+
+
+# Sprint 4 Final product Completed
+
+# Sprint 4 Final step of the web app, FrontEnd added "Post" page, and combined all functionalities with backend 
+Contributor: Yuhao Shi\
+Framework: react\
+Files and folders added or modified under "Frontend" folder.\
+How to run: 1. Frontend: run "npm install" for react packages and "npm start" to start the application; 2. run "go build main" and "go run main.go" for the two backend under folder "backend" and "backend-Chat" seperatly. 3. Before running, install module "react-twitter-embed" and "react-chat-engine".
+
+
+
+
+
+
+
+
+
+
 
 This time we combine the frontend and backend together, and further development in more pages and their functionalities. Everything we worked on this time were ALL placed under "main-branch" default branch with clear history of committments. 
 
 Everything for backend was placed under "BackEnd" folder, and everything for frontend was under "FrontEnd" folder.
-# Final Project demo 
-[![demo](https://i9.ytimg.com/vi/j_HJzqQ3_Tc/mq1.jpg?sqp=CLSYg5MG&rs=AOn4CLByKro9-cvzoM3Lq-xOUxaSbQ4s3w)](https://www.youtube.com/embed/j_HJzqQ3_Tc)</br>
-link: https://youtu.be/j_HJzqQ3_Tc
+
 # Sprint 3 Frontend Real Time Public Chat with mutiple clients
 Contributor: Yuhao Shi\
 Framework: react\
