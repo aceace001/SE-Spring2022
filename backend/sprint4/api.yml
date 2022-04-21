@@ -1,0 +1,213 @@
+swagger: "2.0"
+info:
+  description: "This is an API documentation for Sprint1 and Sprint2."
+  version: "1.0.0"
+  title: "API documentation"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8081"
+basePath: "/api"
+tags:
+- name: "user"
+  description: "Everything about users"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+- name: "posts"
+  description: "Users can create, edit, search, delete posts"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+schemes:
+- "http"
+paths:
+  /api/register:
+    post:
+      tags:
+      - "user"
+      summary: "Create an account"
+      description: "Create an account using user name, email."
+      operationId: "createUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        default:
+          description: "successful operation"
+  /user/login:
+    post:
+      tags:
+      - "user"
+      summary: "Creates list of users with given input array"
+      description: ""
+      operationId: "createUsersWithArrayInput"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "List of user object"
+        required: true
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/User"
+      responses:
+        default:
+          description: "successful operation"
+  
+  /api/logout:
+    get:
+      tags:
+      - "user"
+      summary: "Logs out current logged in user session"
+      description: ""
+      operationId: "logoutUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+  /logiout:
+    get:
+      tags:
+      - "user"
+      summary: "Logs logged in user session"
+      description: ""
+      operationId: "utUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+  /post:
+    post:
+      tags:
+      - "posts"
+      summary: "Create a post"
+      description: ""
+      operationId: "createPosts"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+      
+  /post/:id:
+    get:
+      tags:
+      - "posts"
+      summary: search specific post by post id
+      description: ""
+      operationId: "FindAPost"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+  /searchPosts:
+    get:
+      tags:
+      - "posts"
+      summary: seach all posts 
+      description: "xxx"
+      operationId: "FindPosts"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+  /deletePosts:
+    delete:
+      tags:
+      - "posts"
+      summary: delete posts 
+      description: "users can delete a post by entering the post id"
+      operationId: "deletePost"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+  
+  /updatePosts:
+    patch:
+      tags:
+      - "posts"
+      summary: edit posts
+      operationId: "updatePost"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        default:
+          description: "successful operation"
+      
+      
+  
+securityDefinitions:
+  petstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://petstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:pets: "modify pets in your account"
+      read:pets: "read your pets"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      username:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      email:
+        type: "string"
+      password:
+        type: "string"
+      phone:
+        type: "string"
+      userStatus:
+        type: "integer"
+        format: "int32"
+        description: "User Status"
+    xml:
+      name: "User"
+      
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
