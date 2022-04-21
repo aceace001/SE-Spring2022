@@ -34,7 +34,7 @@ Contributor: Yuhan Jin\
 Framework: gin\
 Folder: backend/sprint4\
 How to run: 1. run "go run main.go" 
-Features:Since the real-time chat room built-in sprint2 does not depend on the GIN framework, the adjustment has been adjusted in sprint4. When users log in to their accounts, they can send messages in a chat room. Everyone who logs in to their account can read the message. Modify the user's personal information and replace the avatar (image upload). However, this part of the function is not fully integrated with the front and back ends, and only functional codes are retained.
+Features:Since the real-time chat room built-in sprint2 does not depend on the GIN framework, the adjustment has been adjusted in sprint4. When users log in to their accounts, they can send messages in a chat room. Everyone who logs in to their account can read the message. Modify the user's personal information and replace the avatar (image upload). However, this part of the function is not fully integrated with the front and back ends, and only functional codes are retained.\
 Contribution for sprint4: Optimize previous features. Implement features which allow users talk in public chat room. personal information code-snipt.
 
 # Sprint 4 BackEnd implemented account setting, public chat, and "post" funtionality 
