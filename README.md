@@ -22,12 +22,6 @@ Funtionalities for this sprint: Added "post" page where users can post their twe
 
 
 
-
-
-This time we combine the frontend and backend together, and further development in more pages and their functionalities. Everything we worked on this time were ALL placed under "main-branch" default branch with clear history of committments. 
-
-Everything for backend was placed under "BackEnd" folder, and everything for frontend was under "FrontEnd" folder.
-
 # Sprint 3 Frontend Real Time Public Chat with mutiple clients
 Contributor: Yuhao Shi\
 Framework: react\
