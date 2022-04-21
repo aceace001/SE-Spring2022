@@ -7,7 +7,7 @@ import Home from './pages/Home'
 import Users from './pages/Users'
 import Submit from './pages/Submit'
 import Settings from './pages/Settings'
-import Search from './pages/Search.js'
+
 import Addfriends from './pages/Addfriends'
 import Posts from './pages/Posts'
 import Support from './pages/SupportAdmin'
@@ -34,7 +34,7 @@ function App() {
         <Route path='/settings' element={<Settings />}/>
         <Route path='/users' element={<Users />}/>
         <Route path='/messages' element={<Messages />}/>
-        <Route path='/search' element={<Search />}/>
+        
         <Route path='/addfriends' element={<Addfriends />}/>
         <Route path='/HomePost1' element={<HomePost1 />} />
         <Route path='/support' element={<Support />}/>
