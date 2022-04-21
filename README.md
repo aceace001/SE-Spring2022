@@ -8,6 +8,20 @@ link: https://youtu.be/j_HJzqQ3_Tc
 
 
 
+# Final FrontEnd Cypress Test
+
+
+https://user-images.githubusercontent.com/49621024/164367117-be56490c-a71a-407f-9e82-793ffc5d1214.mp4
+
+# Sprint 4 Final step of the Front End Testing and some more functionality without backend and better way to interact with react-chat-engine 
+Contributor: Fugang Deng\
+Framework: react\
+Link to the API: https://chatengine.io/ \
+Files and folders added or modified under "Frontend" folder.\
+How to run: Frontend: run "npm install" for react packages and "npm start" to start the application; Before running, install module "react-twitter-embed" and "react-chat-engine" and "react-axios".
+
+Contributon for this sprint:Test the support chat I did and all the other frontend. I have the cypress files with 15 test cases. I implemented the search user and get all the frineds name function with mock data in the serach and users path.
+
 # Sprint 4 Final product Completed
 # Sprint 4 BackEnd implemented account setting, public chat, and "post" funtionality 
 Contributor: Dafei Du\
