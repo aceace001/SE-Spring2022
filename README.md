@@ -2,7 +2,7 @@
 A simple social media web app where users can register accounts with their information and login using the same credentials, having real-time chatting between multiple users who joined the same session "localhost 3000", post text "tweets" for all other users to view. Additionally, an error message will appear when the login credentials don't match, status messages will show up when a user joins or leaves the chatting session, a simple embed Twitter widget is added under post page, and a simple suport chat demo is added. Users can navigate between pages using the navigation button on the top left corner.
 
 # How to run & install modules
-1.For frontend: run "npm install" for react packages and "npm start" to start the application; Before running, install module "react-twitter-embed" and "react-chat-engine".\
+1.For frontend: run "npm install" for react packages and "npm start" to start the application; Before running, install module "react-twitter-embed", "material-ui/icons/Search" and "react-chat-engine".\
 2.For backend: run "go build main" and "go run main.go" for the two backend under folder "backend" and "backend-Chat" seperatly. NOTE that we have two backend folders, need to run both folder seperatly with different terminals at the same time to make our web app work!
 
 # project strutures and folders
