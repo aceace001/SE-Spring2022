@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
-import JSONDATA from '../MOCK_DATA.json';
-import ShowFriends from './showFriends'
+
 
 import '../App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const Users = () => {
   const [showFriends, setshowFriends] = useState(JSONDATA)
