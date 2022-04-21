@@ -3,7 +3,7 @@ This time we combine the frontend and backend together, and further development 
 
 Everything for backend was placed under "BackEnd" folder, and everything for frontend was under "FrontEnd" folder.
 # Final Project demo 
-[![demo](https://www.youtube.com/embed/j_HJzqQ3_Tc)](https://www.youtube.com/embed/j_HJzqQ3_Tc)</br>
+[![demo](https://i9.ytimg.com/vi/j_HJzqQ3_Tc/mq1.jpg?sqp=CLSYg5MG&rs=AOn4CLByKro9-cvzoM3Lq-xOUxaSbQ4s3w)](https://www.youtube.com/embed/j_HJzqQ3_Tc)</br>
 # Sprint 3 Frontend Real Time Public Chat with mutiple clients
 Contributor: Yuhao Shi\
 Framework: react\
