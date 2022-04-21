@@ -4,7 +4,7 @@ import {
 
     TwitterTweetEmbed,
 } from "react-twitter-embed";
-import SearchIcon from "@material-ui/icons/Search";
+
 
 function Widgets() {
     return (
