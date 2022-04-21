@@ -17,7 +17,7 @@ func Strigify(payload map[string]interface{}) []byte {
 	return response
 }
 
-func TestUnitTestingExamplePOST(t *testing.T) {
+func TestPostHomePage(t *testing.T) {
 
 	payload := gin.H{
 		"title": "I am happy now",
@@ -29,7 +29,7 @@ func TestUnitTestingExamplePOST(t *testing.T) {
   
 	rr, req := utils.HttpTestRequest("POST", "/post", Strigify(payload))
 
-	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Content-Type", "application/json")//?
 	router.ServeHTTP(rr, <-request)
 
 	response := utils.Parse(rr.Body.Bytes())
