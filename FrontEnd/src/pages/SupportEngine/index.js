@@ -5,23 +5,27 @@ import SupportWindow from './SupportWindow';
 
 const SupportEngine = () => {
     const [visible, setVisible] = useState(false)
-    const ref = useRef(null)
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef);
 
-    useEffect(() =>{
-        function handleClickOutside(event){
-            if (ref.current && !ref.current.contains(event.target)){
-                setVisible(false)
+    function useOutsideAlerter(ref){
+        useEffect(() =>{
+            function handleClickOutside(event){
+                if (ref.current && !ref.current.contains(event.target)){
+                    setVisible(false)
+                }
             }
-        }
-        document.addEventListener("mousedown",handleClickOutside);
-        return () => {
-            //when you refresh or move the other pages, we just removeEventListener
-            //In this case we can reduce the memroy leak
-            document.removeEventListener("mousedown",handleClickOutside);
-        }
-    },[ref])
+            document.addEventListener("mousedown",handleClickOutside);
+            return () => {
+                //when you refresh or move the other pages, we just removeEventListener
+                //In this case we can reduce the memroy leak
+                document.removeEventListener("mousedown",handleClickOutside);
+            }
+        },[ref]);
+    }
+
     return(
-        <div ref={ref}>
+        <div ref={wrapperRef}>
         
             <SupportWindow
                 visible={visible}
