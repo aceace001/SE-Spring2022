@@ -24,9 +24,10 @@ https://user-images.githubusercontent.com/49621024/164367117-be56490c-a71a-407f-
 Contributor: Fugang Deng\
 Framework: react\
 Link to the API: https://chatengine.io/ \
+There still some arrangement to add user to chat to make the support chat perfect, so there will be people to put cutomer and customer service into the chat, so that they can talk together into the support page.\
 Files and folders added or modified under "Frontend" folder.\
 How to run: Frontend: run "npm install" for react packages and "npm start" to start the application; Before running, install module "react-twitter-embed" and "react-chat-engine" and "react-axios".
-
+When you do the cypress test, you should do npm test in the new terminal
 Contributon for this sprint:Test the support chat I did and all the other frontend. I have the cypress files with 15 test cases. I implemented the search user and get all the frineds name function with mock data in the serach and users path.
 
 # Sprint 4 BackEnd implemented public chat and "personal information" functionality partly
