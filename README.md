@@ -49,6 +49,7 @@ Contribution for sprint4: Optimize previous features. Implement features which a
 
 # Sprint 4 Final step of the web app, FrontEnd added "Post" page, and combined all functionalities with backend 
 Contributor: Yuhao Shi\
+Contributions: added "post" page where users can post or view all user's tweets, combined everything between frontend and backend (register/login, posts, chats) to make our final product work, also added additional feature- an embed Twitter widget.\
 Framework: react\
 Files and folders added or modified under "Frontend" folder.\
 How to run: 1. Frontend: run "npm install" for react packages and "npm start" to start the application; 2. run "go build main" and "go run main.go" for the two backend under folder "backend" and "backend-Chat" seperatly. 3. Before running, install module "react-twitter-embed" and "react-chat-engine".
