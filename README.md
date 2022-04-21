@@ -34,7 +34,7 @@ Contributor: Dafei Du\
 Framework: gin\
 Folder: backend/sprint4\
 How to run: 1. run "go run main.go"\
-Features: Users can register, login, logout account. After loging in their account, they can send message in a chat room. Every one who login their account can read the message. Users can also create a post, edit a post and delete a post. Other can read all posts or find specific one post by searching id.
+Features: Users can register, login, logout account. After loging in their account, they can send message in a chat room. Every one who login their account can read the message. Users can also create a post, edit a post and delete a post. Other can read all posts or find specific one post by searching id.\
 Contribution for sprint4: Optimize previous features. Implement features which allow users talk in public chat room. Combine all these sprints together. Adding api documentation.
 
 # Sprint 4 Final step of the web app, FrontEnd added "Post" page, and combined all functionalities with backend 
